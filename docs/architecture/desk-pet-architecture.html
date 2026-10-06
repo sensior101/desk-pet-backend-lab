@@ -5157,15 +5157,15 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="1365" y="407" class="t-muted" font-size="9" text-anchor="middle">TTS · LED · LCD command generation</text>
         </g>
 
-        <g id="node-task-port" data-node-id="task-port" data-node-label="TaskPort" tabindex="0" role="button" aria-label="Focus TaskPort, create_task · get_tasks · get_status · complete · update, Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="create_task · get_tasks · get_status · complete · update" data-node-tag="application port" data-node-context="Ports">
-          <title>TaskPort · create_task · get_tasks · get_status · complete · update · Ports · application port</title>
+        <g id="node-task-port" data-node-id="task-port" data-node-label="TaskPort" tabindex="0" role="button" aria-label="Focus TaskPort, create_task · get_tasks · get_task_status · complete_task · update_task, Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="create_task · get_tasks · get_task_status · complete_task · update_task" data-node-tag="application port" data-node-context="Ports">
+          <title>TaskPort · create_task · get_tasks · get_task_status · complete_task · update_task · Ports · application port</title>
           <rect x="660" y="550" width="250" height="92" rx="6" class="c-mask"/>
           <rect x="660" y="550" width="250" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(666 556) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="785" y="594" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">TaskPort</text>
-        <text data-detail="context" x="785" y="610" class="t-muted" font-size="7.2" text-anchor="middle">create_task · get_tasks · get_status · complete · update</text>
+        <text data-detail="context" x="785" y="610" class="t-muted" font-size="6.9" text-anchor="middle">create_task · get_tasks · get_task_status · complete_task · update_task</text>
         <text data-detail="fine" x="785" y="634" class="t-backend" font-size="7" text-anchor="middle">application port</text>
         </g>
 
@@ -13989,6 +13989,361 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         Archify.presentation.exit();
       }
     });
+  </script>
+
+  <style id="desk-pet-interface-contracts-style">
+    .interface-contracts {
+      margin: 18px 0 24px;
+      padding: 18px;
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      background: var(--panel);
+      box-shadow: 0 14px 40px rgba(2, 6, 23, 0.22);
+    }
+    .interface-contracts[hidden] { display: none; }
+    .interface-contracts-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .interface-contracts-eyebrow {
+      display: block;
+      color: var(--text-muted);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .interface-contracts h2 {
+      margin: 4px 0 4px;
+      color: var(--text);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .interface-contracts-context {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .interface-contracts-close {
+      border: 1px solid var(--toolbar-border);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--toolbar-text);
+      cursor: pointer;
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 11px;
+    }
+    .interface-contracts-close:hover,
+    .interface-contracts-close:focus-visible { background: var(--toolbar-hover); }
+    .interface-contracts-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .interface-contract-group {
+      min-width: 0;
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.22);
+      overflow: hidden;
+    }
+    [data-theme="light"] .interface-contract-group { background: rgba(248, 250, 252, 0.72); }
+    .interface-contract-group > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      list-style: none;
+      padding: 11px 13px;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .interface-contract-group > summary::-webkit-details-marker { display: none; }
+    .interface-contract-group > summary::after { content: '+'; color: var(--text-muted); font-size: 15px; }
+    .interface-contract-group[open] > summary::after { content: '−'; }
+    .interface-contract-group[data-group-kind="external"] > summary { color: #fbbf24; }
+    [data-theme="light"] .interface-contract-group[data-group-kind="external"] > summary { color: #b45309; }
+    .interface-contract-group[data-group-kind="public"] > summary { color: #34d399; }
+    [data-theme="light"] .interface-contract-group[data-group-kind="public"] > summary { color: #047857; }
+    .interface-contract-group-note {
+      margin: -2px 13px 10px;
+      color: var(--text-muted);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+    .interface-contracts-list { display: grid; gap: 8px; padding: 0 8px 8px; }
+    .interface-contract {
+      border: 1px solid var(--panel-border);
+      border-radius: 9px;
+      background: rgba(2, 6, 23, 0.24);
+    }
+    [data-theme="light"] .interface-contract { background: rgba(255, 255, 255, 0.72); }
+    .interface-contract > summary {
+      cursor: pointer;
+      padding: 9px 10px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .interface-contract > summary::-webkit-details-marker { color: var(--text-muted); }
+    .interface-contract-endpoint {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: 9px;
+      font-weight: 400;
+      overflow-wrap: anywhere;
+    }
+    .interface-contract-body { padding: 0 10px 10px; }
+    .interface-contract-field {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 8px;
+      padding: 6px 0;
+      border-top: 1px solid var(--panel-border);
+    }
+    .interface-contract-field-label {
+      color: var(--text-muted);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .interface-contract-field-value {
+      min-width: 0;
+      color: var(--text);
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 9px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .interface-contracts-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-size: 10px;
+    }
+    .interface-contracts-meta span { padding: 4px 7px; border: 1px solid var(--panel-border); border-radius: 999px; }
+    @media (max-width: 720px) {
+      .interface-contracts { padding: 12px; }
+      .interface-contract-field { grid-template-columns: 1fr; gap: 3px; }
+    }
+  </style>
+
+  <script id="desk-pet-interface-contracts">
+    (function () {
+      'use strict';
+
+      var contracts = [
+        { group: 'Hardware', interface: 'IButtonInput', endpoint: 'Internal interface · Raspberry Pi GPIO', callMethod: 'Raspberry Pi GPIO Event 또는 Interrupt', processing: 'asynchronous event-driven', input: ['buttonState: pressed | released'], output: ['event: BUTTON_PRESSED | BUTTON_RELEASED'], timeout: 'maxRecordingTimeSec: 15 · 초과 시 녹음 강제 종료', error: ['debouncing: 반복 입력 디바운싱', 'deviceError: 입력 장치 오류 로그'] },
+        { group: 'Hardware', interface: 'IAudioCapture', endpoint: 'Internal interface · Raspberry Pi audio device', callMethod: 'Raspberry Pi Internal Audio Device API', processing: 'asynchronous', input: ['event: START_RECORDING | STOP_RECORDING'], output: ['requestId: string', 'audioFormat: WAV | PCM', 'audioData: binary', 'durationMs: number', 'sampleRate: number'], timeout: 'maxRecordingTimeSec: 15 · 초과 시 현재까지의 음성 처리', error: ['microphoneConnectionFailure: MIC_ERROR', 'audioGenerationFailure: AUDIO_CAPTURE_ERROR'] },
+        { group: 'Hardware', interface: 'IHardwareOutput', endpoint: 'Internal interface · device control', callMethod: 'Raspberry Pi Internal Device Control Function', processing: 'asynchronous', input: ['ttsAudio: binary | null', 'ledState: IDLE | LISTENING | SPEAKING | ERROR', 'lcdExpression: string | null', 'lcdText: string | null'], output: ['audioPlayed: boolean', 'ledUpdated: boolean', 'lcdUpdated: boolean'], timeout: '비정상 지속 시 출력 종료 후 IDLE 복귀', error: ['partialDeviceFailure: 가능한 출력 채널로 최소 피드백 제공'], note: 'LED states: IDLE=green/solid · LISTENING=yellow/blink · SPEAKING=blue/blink' },
+        { group: 'STT', interface: 'SpeechToText', endpoint: 'Internal service interface', callMethod: 'Raspberry Pi STT 모듈 또는 Backend STT 서비스 호출', processing: 'asynchronous', input: ['requestId: string', 'audioData: binary', 'audioFormat: WAV | PCM', 'language: ko-KR'], output: ['requestId: string', 'text: string', 'status: SUCCESS | NO_SPEECH | STT_ERROR'], timeout: 'targetMs: 1000 · maxMs: 5000 · 초과 시 요청 중단', error: ['NO_SPEECH 반환', '불명확한 음성은 재입력 요청', 'STT_ERROR 반환 및 로그 기록'] },
+        { group: 'Lightweight Intent Model', interface: 'ClassifyIntent', endpoint: 'Internal function / lightweight model', callMethod: 'Backend Internal Function 또는 Lightweight Model', processing: 'synchronous', input: ['requestId: string', 'text: string'], output: ['requestId: string', 'intent: string', 'confidence: number', 'requiresLLM: boolean'], timeout: 'targetMs: 500 · maxMs: 1000', error: ['lowConfidence: LLM 분석으로 전달', 'missingInformation: 임의 실행 없이 재질문 단계로 전달'] },
+        { group: 'Lightweight Intent Model', interface: 'HandleSimpleCommand', endpoint: 'Internal application interface', callMethod: 'Backend Internal Function', processing: 'synchronous', input: ['intent: string', 'command: string', 'parameters: object'], output: ['success: boolean', 'responseText: string | null', 'robotCommand: object | null'], timeout: 'maxMs: 1000', error: ['requiresExternalData: LLM Layer로 전달', 'requiresContext: LLM Layer로 전달'] },
+        { group: 'Intent / LLM', interface: 'AnalyzeUserRequest', endpoint: 'LLM analysis interface', callMethod: 'Backend Server → LLM API', processing: 'asynchronous', input: ['requestId: string', 'text: string', 'currentDateTime: ISO-8601 datetime', 'conversationContext: object | null'], output: ['intent: string', 'parameters: taskName / dueAt / priority / reminderAt', 'requiredTool: string | null', 'requiresClarification: boolean', 'clarificationQuestion: string | null'], timeout: 'maxMs: 5000 · 초과 시 처리 실패 안내', error: ['missingRequiredInformation: 추가 질문', 'ambiguousDateOrTask: 확인 요청', 'llmFailure: 처리 실패 상태 반환'] },
+        { group: 'Intent / LLM', interface: 'CallMCPTool', endpoint: 'MCP tool interface', callMethod: 'Backend MCP Client → MCP Tool', processing: 'asynchronous', input: ['requestId: string', 'toolName: string', 'operation: string', 'parameters: object'], output: ['requestId: string', 'success: boolean', 'result: object | null', 'error: code / message'], timeout: 'minMs: 3000 · maxMs: 5000', error: ['toolFailure: 오류 코드와 원인 반환', 'permissionDenied: 권한 없는 기능 실행 금지', 'duplicateRequest: requestId로 중복 방지'] },
+        { group: 'Desk Pet Backend API', interface: 'CreateTaskAPI', endpoint: 'POST /api/tasks', callMethod: 'Raspberry Pi → Desk Pet Backend API → TaskService → TaskPort', processing: 'asynchronous', input: ['requestId', 'taskName', 'dueAt: ISO-8601 datetime', 'priority', 'reminderAt: ISO-8601 datetime | null'], output: ['success', 'itemId: string | null', 'status: string | null', 'message'], timeout: 'backendTargetMs: 500 · 외부 요청은 시스템 응답시간 정책 적용', error: ['missingRequiredInformation: 추가 입력 요청', 'eurekaFailure: 등록되지 않은 업무를 성공 처리하지 않음'] },
+        { group: 'Desk Pet Backend API', interface: 'GetTasksAPI', endpoint: 'GET /api/tasks', callMethod: 'Raspberry Pi → Desk Pet Backend API → TaskService → TaskPort', processing: 'asynchronous', input: ['requestId', 'filter: status / dueBefore / priority'], output: ['success', 'tasks: itemId / taskName / dueAt / priority / status(todo|doing|done|hold)'], timeout: 'maxMs: 5000', error: ['queryFailure: 임의 업무를 생성하지 않고 조회 실패 반환'] },
+        { group: 'Desk Pet Backend API', interface: 'CompleteTaskAPI', endpoint: 'POST /api/tasks/{itemId}/complete', callMethod: 'Raspberry Pi → Desk Pet Backend API → TaskService → TaskPort', processing: 'asynchronous', input: ['itemId: string'], output: ['success', 'itemId: string', 'status: done | null'], timeout: 'maxMs: 5000', error: ['taskNotFound: 완료 처리하지 않음', 'ambiguousTask: 대상 업무 확인 요청'] },
+        { group: 'Desk Pet Backend API', interface: 'GetTaskStatusAPI', endpoint: 'GET /api/tasks/{itemId}/status', callMethod: 'Raspberry Pi → Desk Pet Backend API → TaskService → TaskPort', processing: 'asynchronous', input: ['itemId: string'], output: ['success', 'itemId: string', 'status: todo | doing | done | hold', 'totalStages', 'completedStages'], timeout: 'maxMs: 5000', error: ['statusQueryFailure: 기존 값을 추정하지 않고 실패 반환'] },
+        { group: 'Desk Pet Backend API', interface: 'UpdateTaskAPI', endpoint: 'PUT /api/tasks/{itemId}', callMethod: 'Raspberry Pi → Desk Pet Backend API → TaskService → TaskPort', processing: 'asynchronous', input: ['itemId', 'taskName: string | null', 'dueAt: ISO-8601 datetime | null', 'priority: string | null'], output: ['success', 'task: itemId / taskName / dueAt / priority'], timeout: 'maxMs: 5000', error: ['taskNotFound: 변경하지 않음', 'invalidInput: 변경하지 않고 입력 오류 반환'] },
+        { group: 'Eureka Process API', interface: 'CreateTask', endpoint: 'POST /_api_/items/0/start', callMethod: 'EurekaTaskAdapter → Eureka Process HTTP API', processing: 'asynchronous', input: ['processId', 'taskName', 'dueAt: ISO-8601 datetime', 'priority'], output: ['itemId', 'stageIds: string[]', 'task: object'], timeout: 'targetMs: 1000 · maxMs: 2000', error: ['requestFailure: HTTP 상태 코드와 응답 본문 확인', 'missingRequiredValue: 등록 중단'] },
+        { group: 'Eureka Process API', interface: 'GetTasks', endpoint: 'GET /_api_/items/0/list?sites&detail=true', callMethod: 'EurekaTaskAdapter → Eureka Process HTTP API', processing: 'asynchronous', input: ['workspace', 'options'], output: ['items: object[]', 'stages: object[]'], timeout: 'targetMs: 1000 · maxMs: 2000', error: ['apiFailure: Backend에 조회 실패 반환'] },
+        { group: 'Eureka Process API', interface: 'CompleteTask', endpoint: 'POST /_api_/items/{itemId}/complete', callMethod: 'EurekaTaskAdapter → Eureka Process HTTP API', processing: 'asynchronous', input: ['itemId: string'], output: ['itemId', 'status', 'stages: object[]'], timeout: 'targetMs: 1000 · maxMs: 2000', error: ['invalidState: hold 등 완료 불가 상태 오류', 'taskNotFound: 존재하지 않는 업무 ID 오류'] },
+        { group: 'Eureka Process API', interface: 'GetTaskStatus', endpoint: 'GET /_api_/items/{itemId}/status', callMethod: 'EurekaTaskAdapter → Eureka Process HTTP API', processing: 'asynchronous', input: ['itemId: string'], output: ['itemId', 'status: todo | doing | done | hold', 'total', 'done'], timeout: 'targetMs: 1000 · maxMs: 2000', error: ['taskNotFound: 상태 조회 실패', 'apiFailure: 상태 조회 실패'] },
+        { group: 'Eureka Process API', interface: 'UpdateTask', endpoint: 'PUT /_api_/items/{itemId}', callMethod: 'EurekaTaskAdapter → Eureka Process HTTP API', processing: 'asynchronous', input: ['itemId', 'dueAt: ISO-8601 datetime | null', 'taskName: string | null', 'priority: string | null'], output: ['success', 'task: object'], timeout: 'targetMs: 1000 · maxMs: 2000', error: ['invalidValue: 변경하지 않음', 'taskNotFound: 존재하지 않는 업무 ID 오류'] },
+        { group: 'Output / WebSocket', interface: 'GenerateOutput', endpoint: 'Internal application interface', callMethod: 'OutputService internal operation', processing: 'synchronous', input: ['responseType', 'taskName: string | null', 'result: object', 'remainingTime: number | null'], output: ['ttsText', 'ledState: IDLE | LISTENING | SPEAKING | ERROR', 'lcdExpressionId', 'lcdText'], timeout: 'targetMs: 200 · maxMs: 500', error: ['partialGenerationFailure: 사용 가능한 채널로 최소 피드백 제공'] },
+        { group: 'Output / WebSocket', interface: 'SendOutputCommand', endpoint: 'Output delivery interface', callMethod: 'OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi', processing: 'asynchronous', input: ['requestId', 'ttsText: string | null', 'ledState', 'lcdExpressionId: string | null', 'lcdText: string | null'], output: ['success', 'audioOutput', 'ledOutput', 'lcdOutput'], timeout: 'Raspberry Pi 응답이 없으면 네트워크 오류 처리', error: ['networkFailure: 전달 실패 기록', 'proactiveAlertFailure: 미전달 상태 기록', 'normalResponseFailure: 연결 오류 표시'] },
+        { group: 'Output / WebSocket', interface: 'proactive_alert WebSocket event', endpoint: '/ws/{user_id}', callMethod: 'OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi', processing: 'asynchronous', input: ['event: proactive_alert'], output: ['deadline_approaching output for TTS / LED / LCD'], error: ['전달 실패 시 미전달 알림으로 기록 후 재처리 정책 적용'] }
+      ];
+
+      var groupOrder = ['Hardware', 'STT', 'Lightweight Intent Model', 'Intent / LLM', 'Desk Pet Backend API', 'Eureka Process API', 'Output / WebSocket', 'Reminder Policy'];
+      var groupKind = { 'Desk Pet Backend API': 'public', 'Eureka Process API': 'external' };
+      var nodeGroups = {
+        hardware: ['Hardware'], 'audio-capture': ['Hardware'], stt: ['STT'], 'intent-model': ['Lightweight Intent Model'],
+        orchestrator: ['Intent / LLM'], 'task-service': ['Desk Pet Backend API'], 'task-port': ['Desk Pet Backend API'],
+        'eureka-adapter': ['Eureka Process API'], 'eureka-api': ['Eureka Process API'], 'output-service': ['Output / WebSocket'],
+        'output-port': ['Output / WebSocket'], 'websocket-adapter': ['Output / WebSocket'], 'raspberry-pi': ['Output / WebSocket'],
+        'reminder-service': ['Reminder Policy'], scheduler: ['Reminder Policy']
+      };
+      var reminderPolicy = [
+        'Polling 사용 · SchedulerAdapter는 주기 실행만 담당',
+        'completed 업무 제외',
+        '사용자 지정 reminder가 있으면 해당 값 사용',
+        '없으면 기본 dueAt 1시간 전',
+        '중복 알림 방지 후 필요 시 OutputService 호출',
+        'SchedulerAdapter → ReminderService → OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi로 proactive_alert 전달'
+      ];
+
+      function addText(parent, tag, className, value) {
+        var element = document.createElement(tag);
+        if (className) element.className = className;
+        element.textContent = value;
+        parent.appendChild(element);
+        return element;
+      }
+
+      function valueText(value) {
+        if (Array.isArray(value)) return value.join('\n');
+        return value == null ? '—' : String(value);
+      }
+
+      function renderContract(contract) {
+        var details = document.createElement('details');
+        details.className = 'interface-contract';
+        details.setAttribute('data-contract-interface', contract.interface);
+        var summary = document.createElement('summary');
+        summary.textContent = contract.interface;
+        var endpoint = document.createElement('span');
+        endpoint.className = 'interface-contract-endpoint';
+        endpoint.textContent = contract.endpoint || 'Internal contract';
+        summary.appendChild(endpoint);
+        details.appendChild(summary);
+        var body = document.createElement('div');
+        body.className = 'interface-contract-body';
+        [['Input', contract.input], ['Output', contract.output], ['Processing', contract.processing], ['Call method', contract.callMethod], ['Timeout', contract.timeout], ['Error', contract.error], ['Note', contract.note]].forEach(function (entry) {
+          if (entry[1] == null) return;
+          var row = document.createElement('div');
+          row.className = 'interface-contract-field';
+          addText(row, 'span', 'interface-contract-field-label', entry[0]);
+          addText(row, 'div', 'interface-contract-field-value', valueText(entry[1]));
+          body.appendChild(row);
+        });
+        details.appendChild(body);
+        return details;
+      }
+
+      function renderGroup(name, panel, openName) {
+        var group = document.createElement('details');
+        group.className = 'interface-contract-group';
+        group.setAttribute('data-contract-group', name);
+        if (groupKind[name]) group.setAttribute('data-group-kind', groupKind[name]);
+        if (name === openName) group.open = true;
+        var summary = document.createElement('summary');
+        summary.textContent = name;
+        group.appendChild(summary);
+        var list = document.createElement('div');
+        list.className = 'interface-contracts-list';
+        if (name === 'Reminder Policy') {
+          var note = document.createElement('div');
+          note.className = 'interface-contract-group-note';
+          note.textContent = reminderPolicy.join(' · ');
+          list.appendChild(note);
+        }
+        if (name === 'Desk Pet Backend API') {
+          var taskPortNote = document.createElement('div');
+          taskPortNote.className = 'interface-contract-group-note';
+          taskPortNote.textContent = 'TaskPort methods: create_task() · get_tasks() · get_task_status() · complete_task() · update_task()';
+          list.appendChild(taskPortNote);
+        }
+        contracts.filter(function (contract) { return contract.group === name; }).forEach(function (contract) {
+          list.appendChild(renderContract(contract));
+        });
+        if (!list.children.length) {
+          var empty = document.createElement('div');
+          empty.className = 'interface-contract-group-note';
+          empty.textContent = 'MockTaskAdapter는 runtime이 아닌 E2E contract validation용 대체 구현체입니다.';
+          list.appendChild(empty);
+        }
+        group.appendChild(list);
+        panel.querySelector('.interface-contracts-groups').appendChild(group);
+      }
+
+      function buildPanel() {
+        var container = document.querySelector('.container');
+        var diagram = document.querySelector('.diagram-container');
+        if (!container || !diagram) return null;
+        var panel = document.createElement('section');
+        panel.id = 'interface-contracts';
+        panel.className = 'interface-contracts no-print';
+        panel.hidden = true;
+        panel.setAttribute('aria-labelledby', 'interface-contracts-title');
+        var head = document.createElement('div');
+        head.className = 'interface-contracts-head';
+        var copy = document.createElement('div');
+        addText(copy, 'span', 'interface-contracts-eyebrow', 'Contract view');
+        addText(copy, 'h2', '', 'Interface Contracts');
+        addText(copy, 'p', 'interface-contracts-context', 'JSON 명세를 현재 확정 아키텍처의 컴포넌트·Port·Adapter 경계에 맞춰 정리한 상세 패널입니다.');
+        head.appendChild(copy);
+        var close = document.createElement('button');
+        close.className = 'interface-contracts-close';
+        close.type = 'button';
+        close.textContent = 'Close';
+        close.addEventListener('click', function () { panel.hidden = true; });
+        head.appendChild(close);
+        panel.appendChild(head);
+        var groups = document.createElement('div');
+        groups.className = 'interface-contracts-groups';
+        panel.appendChild(groups);
+        var meta = document.createElement('div');
+        meta.className = 'interface-contracts-meta';
+        addText(meta, 'span', '', '21 contracts / events');
+        addText(meta, 'span', '', '/api/* = Desk Pet Backend API');
+        addText(meta, 'span', '', '/_api_/* = Eureka Process API');
+        panel.appendChild(meta);
+        container.insertBefore(panel, diagram);
+        groupOrder.forEach(function (name) { renderGroup(name, panel, null); });
+        return panel;
+      }
+
+      var panel = buildPanel();
+      if (!panel) return;
+
+      var nav = document.querySelector('.diagram-nav');
+      if (nav) {
+        var button = document.createElement('button');
+        button.id = 'btn-interface-contracts';
+        button.type = 'button';
+        button.setAttribute('aria-label', 'Open interface contracts');
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-controls', 'interface-contracts');
+        button.title = 'Interface Contracts (C)';
+        button.textContent = 'CONTRACTS';
+        button.addEventListener('click', function () {
+          panel.hidden = !panel.hidden;
+          button.setAttribute('aria-expanded', String(!panel.hidden));
+          if (!panel.hidden) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        nav.insertBefore(button, nav.querySelector('#btn-node-finder'));
+      }
+
+      function showNodeContracts(nodeId) {
+        var names = nodeGroups[nodeId];
+        if (!names || !names.length) return;
+        panel.hidden = false;
+        var button = document.getElementById('btn-interface-contracts');
+        if (button) button.setAttribute('aria-expanded', 'true');
+        panel.querySelectorAll('[data-contract-group]').forEach(function (group) {
+          group.open = names.indexOf(group.getAttribute('data-contract-group')) >= 0;
+        });
+        var context = panel.querySelector('.interface-contracts-context');
+        if (context) context.textContent = '선택한 노드: ' + nodeId + ' · 관련 Interface Contract 그룹을 열었습니다.';
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      document.addEventListener('click', function (event) {
+        var node = event.target.closest ? event.target.closest('[data-node-id]') : null;
+        if (node) showNodeContracts(node.getAttribute('data-node-id'));
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.metaKey || event.ctrlKey || event.altKey) return;
+        var target = event.target;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+        if (event.key === 'c' || event.key === 'C') {
+          var button = document.getElementById('btn-interface-contracts');
+          if (button) button.click();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
