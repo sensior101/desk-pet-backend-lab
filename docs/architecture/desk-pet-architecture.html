@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.0.1">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>Desk Pet Robot Architecture Diagram</title>
+  <title>Desk Pet Backend Architecture Diagram</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -4978,9 +4978,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="BLUEPRINT / REV 01"
            data-preset-badge-editorial="EDITORIAL / FIELD NOTE">
         <div class="pulse-dot"></div>
-        <h1>Desk Pet Robot Architecture</h1>
+        <h1>Desk Pet Backend Architecture</h1>
       </div>
-      <p class="subtitle">Hardware MVP · HTTP voice result · server push · server Local LLM</p>
+      <p class="subtitle">Backend orchestration · Eureka Process integration · proactive deadline alerts</p>
     </div>
 
 
@@ -4988,332 +4988,397 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / PLATE 04">
-      <svg viewBox="0 0 2080 1490" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="8" data-reader-primary-text="14">
-<title id="archify-diagram-title">Desk Pet Robot Architecture · Hardware MVP</title>
-<desc id="archify-diagram-description">Pi WAV upload via POST /api/voice; server STT, Intent and Local LLM; normal HTTP response and asynchronous WebSocket push; Pi owns Edge-TTS and device state. Existing Backend Core retained.</desc>
-<defs>
+      <svg viewBox="0 0 1548 1148" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+        <title id="archify-diagram-title">Desk Pet Backend Architecture</title>
+        <desc id="archify-diagram-description">Desk Pet Backend Architecture. External Pi input uses HTTP audio upload to server STT. LLM selects tools, MCP Client invokes through the Orchestrator / Application boundary. TaskPort and EurekaTaskAdapter are required for task execution. Normal HTTP responses and asynchronous WebSocket alerts remain distinct.</desc>
+        <!-- Definitions -->
+        <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default"></polygon>
           </marker>
           <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis"></polygon>
           </marker>
           <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security"></polygon>
           </marker>
           <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed"></polygon>
           </marker>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"></path>
           </pattern>
         </defs>
-<rect width="100%" height="100%" fill="url(#grid)"/>
-<text x="50" y="45" class="t-primary" font-size="18" font-weight="600">VOICE / HTTP REQUEST + RESPONSE</text>
-<text x="1070" y="45" class="t-messagebus" font-size="15">SERVER PUSH / WEBSOCKET · Pi sends text PING only</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Raspberry Pi / Input" x="30" y="90" width="650" height="177" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="44" y="113" class="t-cloud" font-size="13" font-weight="600">Raspberry Pi / Input</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="AI Processing Layer (Server)" x="710" y="90" width="1330" height="177" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="724" y="113" class="t-cloud" font-size="13" font-weight="600">AI Processing Layer (Server)</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="Application Layer" x="710" y="350" width="1230" height="400" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="724" y="373" class="t-cloud" font-size="13" font-weight="600">Application Layer</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="3" data-composition-frame-label="Ports" x="710" y="835" width="1230" height="150" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="724" y="858" class="t-cloud" font-size="13" font-weight="600">Ports</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="4" data-composition-frame-label="Infrastructure / Adapter Layer" x="380" y="1050" width="1560" height="152" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="394" y="1073" class="t-cloud" font-size="13" font-weight="600">Infrastructure / Adapter Layer</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="5" data-composition-frame-label="External Systems" x="710" y="1260" width="340" height="154" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="724" y="1283" class="t-cloud" font-size="13" font-weight="600">External Systems</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="6" data-composition-frame-label="Raspberry Pi / Output" x="40" y="830" width="330" height="585" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="54" y="853" class="t-cloud" font-size="13" font-weight="600">Raspberry Pi / Output</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="7" data-composition-frame-label="Test-only substitution" x="380" y="835" width="310" height="150" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="394" y="858" class="t-cloud" font-size="13" font-weight="600">Test-only substitution</text>
-<rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="8" data-composition-frame-label="HTTP Response boundary" x="40" y="595" width="365" height="155" rx="12" class="c-region" stroke-width="1"/>
-<text data-boundary-label="" x="54" y="618" class="t-cloud" font-size="13" font-weight="600">HTTP Response boundary</text>
-<path data-graph-role="route-underlay" d="M 170 191 L 220 191" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="user" data-edge-to="hardware" data-edge-label="PTT" data-edge-key="0" data-edge-id="user-hardware" data-composition-points="170,191;220,191" d="M 170 191 L 220 191" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 400 191 L 440 191" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="hardware" data-edge-to="audio-capture" data-edge-label="record" data-edge-key="1" data-edge-id="hardware-audio" data-composition-points="400,191;440,191" d="M 400 191 L 440 191" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 660 191 L 740 191" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="audio-capture" data-edge-to="voice-api" data-edge-label="WAV / HTTP" data-edge-key="2" data-edge-id="audio-voice" data-composition-points="660,191;740,191" d="M 660 191 L 740 191" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1010 191 L 1060 191" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="voice-api" data-edge-to="stt" data-edge-label="decode" data-edge-key="3" data-edge-id="voice-stt" data-composition-points="1010,191;1060,191" d="M 1010 191 L 1060 191" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1305 191 L 1360 191" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="stt" data-edge-to="intent-model" data-edge-label="text" data-edge-key="4" data-edge-id="stt-intent" data-composition-points="1305,191;1360,191" d="M 1305 191 L 1360 191" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1505 237 L 1505 390" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="intent-model" data-edge-to="orchestrator" data-edge-label="intent + confidence" data-edge-key="5" data-edge-id="intent-orchestrator" data-composition-points="1505,237;1505,390" d="M 1505 237 L 1505 390" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1650 420 L 1875 420 L 1875 237" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="orchestrator" data-edge-to="local-llm" data-edge-label="complex / unclear request ↔ analysis" data-edge-key="6" data-edge-id="orchestrator-local-llm" data-composition-points="1650,420;1875,420;1875,237" d="M 1650 420 L 1875 420 L 1875 237" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1360 435 L 880 435 L 880 630" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="orchestrator" data-edge-to="task-service" data-edge-label="task requests only" data-edge-key="7" data-edge-id="orchestrator-task" data-composition-points="1360,435;880,435;880,630" d="M 1360 435 L 880 435 L 880 630" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1505 482 L 1505 530 L 1260 530 L 1260 630" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="orchestrator" data-edge-to="reminder-service" data-edge-label="reminder settings" data-edge-key="8" data-edge-id="orchestrator-reminder" data-composition-points="1505,482;1505,530;1260,530;1260,630" d="M 1505 482 L 1505 530 L 1260 530 L 1260 630" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1650 455 L 1780 455 L 1780 630" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="orchestrator" data-edge-to="output-service" data-edge-label="clarification / response" data-edge-key="9" data-edge-id="orchestrator-output" data-composition-points="1650,455;1780,455;1780,630" d="M 1650 455 L 1780 455 L 1780 630" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 850 722 L 850 870" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="task-service" data-edge-to="task-port" data-edge-label="uses" data-edge-key="10" data-edge-id="task-port-use" data-composition-points="850,722;850,870" d="M 850 722 L 850 870" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1020 690 L 1050 690 L 1050 780 L 1725 780 L 1725 722" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="task-service" data-edge-to="output-service" data-edge-label="task result → output text" data-edge-key="11" data-edge-id="task-result-output" data-composition-points="1020,690;1050,690;1050,780;1725,780;1725,722" d="M 1020 690 L 1050 690 L 1050 780 L 1725 780 L 1725 722" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 815 1090 L 815 962" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="eureka-adapter" data-edge-to="task-port" data-edge-label="implements" data-edge-key="12" data-edge-id="eureka-implements-task" data-composition-points="815,1090;815,962" d="M 815 1090 L 815 962" class="a-dashed" stroke-width="1.8" marker-end="url(#arrowhead-dashed)"/>
-<path data-graph-role="route-underlay" d="M 960 962 L 960 1090" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="task-port" data-edge-to="eureka-adapter" data-edge-label="runtime call / result" data-edge-key="13" data-edge-id="task-port-adapter-call" data-composition-points="960,962;960,1090" d="M 960 962 L 960 1090" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 880 1182 L 880 1300" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="eureka-adapter" data-edge-to="eureka-api" data-edge-label="HTTP / response" data-edge-key="14" data-edge-id="eureka-http" data-composition-points="880,1182;880,1300" d="M 880 1182 L 880 1300" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 535 1090 L 535 1020 L 1070 1020 L 1070 670 L 1110 670" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="scheduler" data-edge-to="reminder-service" data-edge-label="polling trigger" data-edge-key="15" data-edge-id="scheduler-triggers-reminder" data-composition-points="535,1090;535,1020;1070,1020;1070,670;1110,670" d="M 535 1090 L 535 1020 L 1070 1020 L 1070 670 L 1110 670" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1150 722 L 1150 825 L 990 825 L 990 870" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="reminder-service" data-edge-to="task-port" data-edge-label="queries through TaskPort" data-edge-key="16" data-edge-id="reminder-task-port" data-composition-points="1150,722;1150,825;990,825;990,870" d="M 1150 722 L 1150 825 L 990 825 L 990 870" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1300 722 L 1300 870" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="reminder-service" data-edge-to="reminder-repo-port" data-edge-label="reads / writes" data-edge-key="17" data-edge-id="reminder-repo" data-composition-points="1300,722;1300,870" d="M 1300 722 L 1300 870" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 1260 1090 L 1260 962" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="db-adapter" data-edge-to="reminder-repo-port" data-edge-label="implements" data-edge-key="18" data-edge-id="db-implements-repo" data-composition-points="1260,1090;1260,962" d="M 1260 1090 L 1260 962" class="a-dashed" stroke-width="1.8" marker-end="url(#arrowhead-dashed)"/>
-<path data-graph-role="route-underlay" d="M 1410 676 L 1550 676" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="reminder-service" data-edge-to="output-service" data-edge-label="alert" data-edge-key="19" data-edge-id="reminder-output" data-composition-points="1410,676;1550,676" d="M 1410 676 L 1550 676" class="a-emphasis" style="stroke:var(--messagebus-stroke)" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1680 630 L 1680 575 L 225 575 L 225 630" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="output-service" data-edge-to="http-response" data-edge-label="A · normal voice response / HTTP" data-edge-key="20" data-edge-id="output-http-response" data-composition-points="1680,630;1680,575;225,575;225,630" d="M 1680 630 L 1680 575 L 225 575 L 225 630" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 210 722 L 210 870" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="http-response" data-edge-to="raspberry-pi" data-edge-label="HTTP result" data-edge-key="21" data-edge-id="http-response-pi" data-composition-points="210,722;210,870" d="M 210 722 L 210 870" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1810 722 L 1810 870" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="output-service" data-edge-to="output-port" data-edge-label="B · server push only" data-edge-key="22" data-edge-id="output-port-publish" data-composition-points="1810,722;1810,870" d="M 1810 722 L 1810 870" class="a-emphasis" style="stroke:var(--messagebus-stroke)" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1640 1090 L 1640 962" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="websocket-adapter" data-edge-to="output-port" data-edge-label="implements" data-edge-key="23" data-edge-id="websocket-implements-output" data-composition-points="1640,1090;1640,962" d="M 1640 1090 L 1640 962" class="a-dashed" stroke-width="1.8" marker-end="url(#arrowhead-dashed)"/>
-<path data-graph-role="route-underlay" d="M 1850 962 L 1850 1090" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="output-port" data-edge-to="websocket-adapter" data-edge-label="publish" data-edge-key="24" data-edge-id="output-port-adapter-call" data-composition-points="1850,962;1850,1090" d="M 1850 962 L 1850 1090" class="a-emphasis" style="stroke:var(--messagebus-stroke)" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 1910 1145 L 2040 1145 L 2040 1235 L 370 1235 L 370 920 L 350 920" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="websocket-adapter" data-edge-to="raspberry-pi" data-edge-label="B · /ws/hardware/{user_id} · output / proactive_alert" data-edge-key="25" data-edge-id="websocket-pi" data-composition-points="1910,1145;2040,1145;2040,1235;370,1235;370,920;350,920" d="M 1910 1145 L 2040 1145 L 2040 1235 L 370 1235 L 370 920 L 350 920" class="a-emphasis" style="stroke:var(--messagebus-stroke)" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-<path data-graph-role="route-underlay" d="M 210 962 L 210 1090" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="raspberry-pi" data-edge-to="device-state" data-edge-label="received output → local state" data-edge-key="26" data-edge-id="pi-device-state" data-composition-points="210,962;210,1090" d="M 210 962 L 210 1090" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 210 1182 L 210 1300" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="device-state" data-edge-to="hardware-output" data-edge-label="Pi-local ledState + ttsText + LCD" data-edge-key="27" data-edge-id="state-hardware-output" data-composition-points="210,1182;210,1300" d="M 210 1182 L 210 1300" class="a-default" stroke-width="1.8" marker-end="url(#arrowhead)"/>
-<path data-graph-role="route-underlay" d="M 670 916 L 740 916" fill="none" stroke="var(--mask)" stroke-width="6" pointer-events="none"/>
-<path data-edge-from="mock-adapter" data-edge-to="task-port" data-edge-label="test impl" data-edge-key="28" data-edge-id="mock-implements-task" data-composition-points="670,916;740,916" d="M 670 916 L 740 916" class="a-dashed" stroke-width="1.8" marker-end="url(#arrowhead-dashed)"/>
-<g id="node-user" data-node-id="user" data-node-label="User" tabindex="0" role="button" aria-label="Focus User, Push-to-Talk, Raspberry Pi / Input" aria-pressed="false" data-node-kind="external" data-node-sublabel="Push-to-Talk" data-node-tag="" data-node-context="Raspberry Pi / Input">
-  <title>User · Push-to-Talk ·  · Raspberry Pi / Input</title>
-  <rect x="50" y="145" width="120" height="92" rx="6" class="c-mask"/>
-  <rect x="50" y="145" width="120" height="92" rx="6" class="c-external" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="110" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">User</text>
-  <text data-detail="context" x="110" y="200" class="t-muted" font-size="11" text-anchor="middle">Push-to-Talk</text>
-  
-</g>
-<g id="node-hardware" data-node-id="hardware" data-node-label="PTT Button" tabindex="0" role="button" aria-label="Focus PTT Button, GPIO17 · pull-up · LOW, Raspberry Pi / Input" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="GPIO17 · pull-up · LOW" data-node-tag="" data-node-context="Raspberry Pi / Input">
-  <title>PTT Button · GPIO17 · pull-up · LOW ·  · Raspberry Pi / Input</title>
-  <rect x="220" y="145" width="180" height="92" rx="6" class="c-mask"/>
-  <rect x="220" y="145" width="180" height="92" rx="6" class="c-frontend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="310" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">PTT Button</text>
-  <text data-detail="context" x="310" y="200" class="t-muted" font-size="11" text-anchor="middle">GPIO17 · pull-up · LOW</text>
-  
-</g>
-<g id="node-audio-capture" data-node-id="audio-capture" data-node-label="Audio Capture" tabindex="0" role="button" aria-label="Focus Audio Capture, WAV 16kHz mono 16bit, Raspberry Pi / Input" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="WAV 16kHz mono 16bit" data-node-tag="ALSA · I2S · max 15 sec" data-node-context="Raspberry Pi / Input">
-  <title>Audio Capture · WAV 16kHz mono 16bit · ALSA · I2S · max 15 sec · Raspberry Pi / Input</title>
-  <rect x="440" y="145" width="220" height="92" rx="6" class="c-mask"/>
-  <rect x="440" y="145" width="220" height="92" rx="6" class="c-frontend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="550" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Audio Capture</text>
-  <text data-detail="context" x="550" y="200" class="t-muted" font-size="11" text-anchor="middle">WAV 16kHz mono 16bit</text>
-  <text data-detail="fine" x="550" y="221" class="t-frontend" font-size="10" text-anchor="middle">ALSA · I2S · max 15 sec</text>
-</g>
-<g id="node-voice-api" data-node-id="voice-api" data-node-label="POST /api/voice" tabindex="0" role="button" aria-label="Focus POST /api/voice, multipart/form-data · WAV upload, AI Processing Layer (Server)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="multipart/form-data · WAV upload" data-node-tag="HTTP API boundary" data-node-context="AI Processing Layer (Server)">
-  <title>POST /api/voice · multipart/form-data · WAV upload · HTTP API boundary · AI Processing Layer (Server)</title>
-  <rect x="740" y="145" width="270" height="92" rx="6" class="c-mask"/>
-  <rect x="740" y="145" width="270" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="875" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">POST /api/voice</text>
-  <text data-detail="context" x="875" y="200" class="t-muted" font-size="11" text-anchor="middle">multipart/form-data · WAV upload</text>
-  <text data-detail="fine" x="875" y="221" class="t-backend" font-size="10" text-anchor="middle">HTTP API boundary</text>
-</g>
-<g id="node-stt" data-node-id="stt" data-node-label="STT" tabindex="0" role="button" aria-label="Focus STT, Server speech → text · ko-KR, AI Processing Layer (Server)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Server speech → text · ko-KR" data-node-tag="" data-node-context="AI Processing Layer (Server)">
-  <title>STT · Server speech → text · ko-KR ·  · AI Processing Layer (Server)</title>
-  <rect x="1060" y="145" width="245" height="92" rx="6" class="c-mask"/>
-  <rect x="1060" y="145" width="245" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1182.5" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">STT</text>
-  <text data-detail="context" x="1182.5" y="200" class="t-muted" font-size="11" text-anchor="middle">Server speech → text · ko-KR</text>
-  
-</g>
-<g id="node-intent-model" data-node-id="intent-model" data-node-label="Lightweight Intent Model" tabindex="0" role="button" aria-label="Focus Lightweight Intent Model, Server classification · confidence, AI Processing Layer (Server)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Server classification · confidence" data-node-tag="" data-node-context="AI Processing Layer (Server)">
-  <title>Lightweight Intent Model · Server classification · confidence ·  · AI Processing Layer (Server)</title>
-  <rect x="1360" y="145" width="290" height="92" rx="6" class="c-mask"/>
-  <rect x="1360" y="145" width="290" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1505" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Lightweight Intent Model</text>
-  <text data-detail="context" x="1505" y="200" class="t-muted" font-size="11" text-anchor="middle">Server classification · confidence</text>
-  
-</g>
-<g id="node-local-llm" data-node-id="local-llm" data-node-label="Local LLM Service" tabindex="0" role="button" aria-label="Focus Local LLM Service, Runs on server · complex requests, AI Processing Layer (Server)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Runs on server · complex requests" data-node-tag="" data-node-context="AI Processing Layer (Server)">
-  <title>Local LLM Service · Runs on server · complex requests ·  · AI Processing Layer (Server)</title>
-  <rect x="1730" y="145" width="290" height="92" rx="6" class="c-mask"/>
-  <rect x="1730" y="145" width="290" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1875" y="179" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Local LLM Service</text>
-  <text data-detail="context" x="1875" y="200" class="t-muted" font-size="11" text-anchor="middle">Runs on server · complex requests</text>
-  
-</g>
-<g id="node-orchestrator" data-node-id="orchestrator" data-node-label="Intent / LLM Orchestrator" tabindex="0" role="button" aria-label="Focus Intent / LLM Orchestrator, Route intent · extract slots · clarify, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Route intent · extract slots · clarify" data-node-tag="" data-node-context="Application Layer">
-  <title>Intent / LLM Orchestrator · Route intent · extract slots · clarify ·  · Application Layer</title>
-  <rect x="1360" y="390" width="290" height="92" rx="6" class="c-mask"/>
-  <rect x="1360" y="390" width="290" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1505" y="424" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Intent / LLM Orchestrator</text>
-  <text data-detail="context" x="1505" y="445" class="t-muted" font-size="11" text-anchor="middle">Route intent · extract slots · clarify</text>
-  
-</g>
-<g id="node-task-service" data-node-id="task-service" data-node-label="TaskService" tabindex="0" role="button" aria-label="Focus TaskService, create · list · status · complete · update, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="create · list · status · complete · update" data-node-tag="" data-node-context="Application Layer">
-  <title>TaskService · create · list · status · complete · update ·  · Application Layer</title>
-  <rect x="740" y="630" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="740" y="630" width="280" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="880" y="664" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">TaskService</text>
-  <text data-detail="context" x="880" y="685" class="t-muted" font-size="10" text-anchor="middle">create · list · status · complete · update</text>
-  
-</g>
-<g id="node-reminder-service" data-node-id="reminder-service" data-node-label="ReminderService" tabindex="0" role="button" aria-label="Focus ReminderService, deadline · completed exclusion · dedup, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="deadline · completed exclusion · dedup" data-node-tag="" data-node-context="Application Layer">
-  <title>ReminderService · deadline · completed exclusion · dedup ·  · Application Layer</title>
-  <rect x="1110" y="630" width="300" height="92" rx="6" class="c-mask"/>
-  <rect x="1110" y="630" width="300" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1260" y="664" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">ReminderService</text>
-  <text data-detail="context" x="1260" y="685" class="t-muted" font-size="11" text-anchor="middle">deadline · completed exclusion · dedup</text>
-  
-</g>
-<g id="node-output-service" data-node-id="output-service" data-node-label="OutputService" tabindex="0" role="button" aria-label="Focus OutputService, type · output.tts · output.lcd, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="type · output.tts · output.lcd" data-node-tag="Text generation · HTTP or server push" data-node-context="Application Layer">
-  <title>OutputService · type · output.tts · output.lcd · Text generation · HTTP or server push · Application Layer</title>
-  <rect x="1550" y="630" width="360" height="92" rx="6" class="c-mask"/>
-  <rect x="1550" y="630" width="360" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1730" y="664" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">OutputService</text>
-  <text data-detail="context" x="1730" y="685" class="t-muted" font-size="11" text-anchor="middle">type · output.tts · output.lcd</text>
-  <text data-detail="fine" x="1730" y="706" class="t-backend" font-size="10" text-anchor="middle">Text generation · HTTP or server push</text>
-</g>
-<g id="node-http-response" data-node-id="http-response" data-node-label="HTTP /api/voice Response" tabindex="0" role="button" aria-label="Focus HTTP /api/voice Response, request_id · status · stt_text · type, HTTP Response boundary" aria-pressed="false" data-node-kind="backend" data-node-sublabel="request_id · status · stt_text · type" data-node-tag="output.tts · output.lcd · final result" data-node-context="HTTP Response boundary">
-  <title>HTTP /api/voice Response · request_id · status · stt_text · type · output.tts · output.lcd · final result · HTTP Response boundary</title>
-  <rect x="70" y="630" width="310" height="92" rx="6" class="c-mask"/>
-  <rect x="70" y="630" width="310" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="225" y="664" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">HTTP /api/voice Response</text>
-  <text data-detail="context" x="225" y="685" class="t-muted" font-size="11" text-anchor="middle">request_id · status · stt_text · type</text>
-  <text data-detail="fine" x="225" y="706" class="t-backend" font-size="10" text-anchor="middle">output.tts · output.lcd · final result</text>
-</g>
-<g id="node-task-port" data-node-id="task-port" data-node-label="TaskPort" tabindex="0" role="button" aria-label="Focus TaskPort, create_task() · get_tasks(), Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="create_task() · get_tasks()" data-node-tag="get_task_status() · complete_task() · update_task()" data-node-context="Ports">
-  <title>TaskPort · create_task() · get_tasks() · get_task_status() · complete_task() · update_task() · Ports</title>
-  <rect x="740" y="870" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="740" y="870" width="280" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="880" y="904" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">TaskPort</text>
-  <text data-detail="context" x="880" y="925" class="t-muted" font-size="11" text-anchor="middle">create_task() · get_tasks()</text>
-  <text data-detail="fine" x="880" y="946" class="t-backend" font-size="8" text-anchor="middle">get_task_status() · complete_task() · update_task()</text>
-</g>
-<g id="node-reminder-repo-port" data-node-id="reminder-repo-port" data-node-label="ReminderRepositoryPort" tabindex="0" role="button" aria-label="Focus ReminderRepositoryPort, reminder settings · delivery history, Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="reminder settings · delivery history" data-node-tag="" data-node-context="Ports">
-  <title>ReminderRepositoryPort · reminder settings · delivery history ·  · Ports</title>
-  <rect x="1110" y="870" width="300" height="92" rx="6" class="c-mask"/>
-  <rect x="1110" y="870" width="300" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1260" y="904" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">ReminderRepositoryPort</text>
-  <text data-detail="context" x="1260" y="925" class="t-muted" font-size="11" text-anchor="middle">reminder settings · delivery history</text>
-  
-</g>
-<g id="node-output-port" data-node-id="output-port" data-node-label="OutputPublisherPort" tabindex="0" role="button" aria-label="Focus OutputPublisherPort, server-initiated asynchronous, Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="server-initiated asynchronous" data-node-tag="output publishing · excludes HTTP response" data-node-context="Ports">
-  <title>OutputPublisherPort · server-initiated asynchronous · output publishing · excludes HTTP response · Ports</title>
-  <rect x="1550" y="870" width="360" height="92" rx="6" class="c-mask"/>
-  <rect x="1550" y="870" width="360" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1730" y="904" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">OutputPublisherPort</text>
-  <text data-detail="context" x="1730" y="925" class="t-muted" font-size="11" text-anchor="middle">server-initiated asynchronous</text>
-  <text data-detail="fine" x="1730" y="946" class="t-backend" font-size="10" text-anchor="middle">output publishing · excludes HTTP response</text>
-</g>
-<g id="node-scheduler" data-node-id="scheduler" data-node-label="SchedulerAdapter" tabindex="0" role="button" aria-label="Focus SchedulerAdapter, periodic reminder trigger, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="periodic reminder trigger" data-node-tag="driver" data-node-context="Infrastructure / Adapter Layer">
-  <title>SchedulerAdapter · periodic reminder trigger · driver · Infrastructure / Adapter Layer</title>
-  <rect x="400" y="1090" width="270" height="92" rx="6" class="c-mask"/>
-  <rect x="400" y="1090" width="270" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="535" y="1124" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">SchedulerAdapter</text>
-  <text data-detail="context" x="535" y="1145" class="t-muted" font-size="11" text-anchor="middle">periodic reminder trigger</text>
-  <text data-detail="fine" x="535" y="1166" class="t-backend" font-size="10" text-anchor="middle">driver</text>
-</g>
-<g id="node-eureka-adapter" data-node-id="eureka-adapter" data-node-label="EurekaTaskAdapter" tabindex="0" role="button" aria-label="Focus EurekaTaskAdapter, TaskPort implementation · HTTP mapping, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="TaskPort implementation · HTTP mapping" data-node-tag="adapter" data-node-context="Infrastructure / Adapter Layer">
-  <title>EurekaTaskAdapter · TaskPort implementation · HTTP mapping · adapter · Infrastructure / Adapter Layer</title>
-  <rect x="740" y="1090" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="740" y="1090" width="280" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="880" y="1124" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">EurekaTaskAdapter</text>
-  <text data-detail="context" x="880" y="1145" class="t-muted" font-size="11" text-anchor="middle">TaskPort implementation · HTTP mapping</text>
-  <text data-detail="fine" x="880" y="1166" class="t-backend" font-size="10" text-anchor="middle">adapter</text>
-</g>
-<g id="node-db-adapter" data-node-id="db-adapter" data-node-label="DatabaseAdapter" tabindex="0" role="button" aria-label="Focus DatabaseAdapter, reminder persistence, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="database" data-node-sublabel="reminder persistence" data-node-tag="adapter" data-node-context="Infrastructure / Adapter Layer">
-  <title>DatabaseAdapter · reminder persistence · adapter · Infrastructure / Adapter Layer</title>
-  <rect x="1110" y="1090" width="300" height="92" rx="6" class="c-mask"/>
-  <rect x="1110" y="1090" width="300" height="92" rx="6" class="c-database" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1260" y="1124" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">DatabaseAdapter</text>
-  <text data-detail="context" x="1260" y="1145" class="t-muted" font-size="11" text-anchor="middle">reminder persistence</text>
-  <text data-detail="fine" x="1260" y="1166" class="t-database" font-size="10" text-anchor="middle">adapter</text>
-</g>
-<g id="node-websocket-adapter" data-node-id="websocket-adapter" data-node-label="WebSocketAdapter" tabindex="0" role="button" aria-label="Focus WebSocketAdapter, server push · output / proactive_alert, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="server push · output / proactive_alert" data-node-tag="connection / heartbeat · connected / PONG" data-node-context="Infrastructure / Adapter Layer">
-  <title>WebSocketAdapter · server push · output / proactive_alert · connection / heartbeat · connected / PONG · Infrastructure / Adapter Layer</title>
-  <rect x="1550" y="1090" width="360" height="92" rx="6" class="c-mask"/>
-  <rect x="1550" y="1090" width="360" height="92" rx="6" class="c-messagebus" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="1730" y="1124" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">WebSocketAdapter</text>
-  <text data-detail="context" x="1730" y="1145" class="t-muted" font-size="11" text-anchor="middle">server push · output / proactive_alert</text>
-  <text data-detail="fine" x="1730" y="1166" class="t-messagebus" font-size="10" text-anchor="middle">connection / heartbeat · connected / PONG</text>
-</g>
-<g id="node-eureka-api" data-node-id="eureka-api" data-node-label="Eureka Process API" tabindex="0" role="button" aria-label="Focus Eureka Process API, task source of truth · REST, External Systems" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="task source of truth · REST" data-node-tag="" data-node-context="External Systems">
-  <title>Eureka Process API · task source of truth · REST ·  · External Systems</title>
-  <rect x="740" y="1300" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="740" y="1300" width="280" height="92" rx="6" class="c-cloud" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="880" y="1334" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Eureka Process API</text>
-  <text data-detail="context" x="880" y="1355" class="t-muted" font-size="11" text-anchor="middle">task source of truth · REST</text>
-  
-</g>
-<g id="node-raspberry-pi" data-node-id="raspberry-pi" data-node-label="Raspberry Pi" tabindex="0" role="button" aria-label="Focus Raspberry Pi, Edge-TTS · Device State · LED · LCD, Raspberry Pi / Output" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Edge-TTS · Device State · LED · LCD" data-node-tag="HTTP result + WebSocket push" data-node-context="Raspberry Pi / Output">
-  <title>Raspberry Pi · Edge-TTS · Device State · LED · LCD · HTTP result + WebSocket push · Raspberry Pi / Output</title>
-  <rect x="70" y="870" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="70" y="870" width="280" height="92" rx="6" class="c-frontend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="210" y="904" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Raspberry Pi</text>
-  <text data-detail="context" x="210" y="925" class="t-muted" font-size="11" text-anchor="middle">Edge-TTS · Device State · LED · LCD</text>
-  <text data-detail="fine" x="210" y="946" class="t-frontend" font-size="10" text-anchor="middle">HTTP result + WebSocket push</text>
-</g>
-<g id="node-device-state" data-node-id="device-state" data-node-label="IDeviceStateManager" tabindex="0" role="button" aria-label="Focus IDeviceStateManager, IDLE · LISTENING · THINKING, Raspberry Pi / Output" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="IDLE · LISTENING · THINKING" data-node-tag="SPEAKING · ALERT · ERROR" data-node-context="Raspberry Pi / Output">
-  <title>IDeviceStateManager · IDLE · LISTENING · THINKING · SPEAKING · ALERT · ERROR · Raspberry Pi / Output</title>
-  <rect x="70" y="1090" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="70" y="1090" width="280" height="92" rx="6" class="c-frontend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="210" y="1124" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">IDeviceStateManager</text>
-  <text data-detail="context" x="210" y="1145" class="t-muted" font-size="11" text-anchor="middle">IDLE · LISTENING · THINKING</text>
-  <text data-detail="fine" x="210" y="1166" class="t-frontend" font-size="10" text-anchor="middle">SPEAKING · ALERT · ERROR</text>
-</g>
-<g id="node-hardware-output" data-node-id="hardware-output" data-node-label="IHardwareOutput" tabindex="0" role="button" aria-label="Focus IHardwareOutput, Edge-TTS → ALSA → Speaker, Raspberry Pi / Output" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Edge-TTS → ALSA → Speaker" data-node-tag="LED GPIO12 · LCD SPI0 · brightness ≤ 0.3" data-node-context="Raspberry Pi / Output">
-  <title>IHardwareOutput · Edge-TTS → ALSA → Speaker · LED GPIO12 · LCD SPI0 · brightness ≤ 0.3 · Raspberry Pi / Output</title>
-  <rect x="70" y="1300" width="280" height="92" rx="6" class="c-mask"/>
-  <rect x="70" y="1300" width="280" height="92" rx="6" class="c-frontend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="210" y="1334" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">IHardwareOutput</text>
-  <text data-detail="context" x="210" y="1355" class="t-muted" font-size="11" text-anchor="middle">Edge-TTS → ALSA → Speaker</text>
-  <text data-detail="fine" x="210" y="1376" class="t-frontend" font-size="10" text-anchor="middle">LED GPIO12 · LCD SPI0 · brightness ≤ 0.3</text>
-</g>
-<g id="node-mock-adapter" data-node-id="mock-adapter" data-node-label="MockTaskAdapter" tabindex="0" role="button" aria-label="Focus MockTaskAdapter, test-only TaskPort substitute, Test-only substitution" aria-pressed="false" data-node-kind="backend" data-node-sublabel="test-only TaskPort substitute" data-node-tag="E2E contract validation" data-node-context="Test-only substitution">
-  <title>MockTaskAdapter · test-only TaskPort substitute · E2E contract validation · Test-only substitution</title>
-  <rect x="400" y="870" width="270" height="92" rx="6" class="c-mask"/>
-  <rect x="400" y="870" width="270" height="92" rx="6" class="c-backend" stroke-width="1.5"/>
-  <text data-node-label="" data-detail-anchor="" x="535" y="904" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">MockTaskAdapter</text>
-  <text data-detail="context" x="535" y="925" class="t-muted" font-size="11" text-anchor="middle">test-only TaskPort substitute</text>
-  <text data-detail="fine" x="535" y="946" class="t-backend" font-size="10" text-anchor="middle">E2E contract validation</text>
-</g>
-<g data-detail="context" data-edge-from="user" data-edge-to="hardware" data-edge-label="PTT" data-edge-key="0" data-edge-id="user-hardware"><rect x="179.7" y="162" width="30.6" height="18" rx="3" class="c-mask"/><text x="195" y="175" class="t-edge-default" font-size="10.5" text-anchor="middle">PTT</text></g>
-<g data-detail="context" data-edge-from="hardware" data-edge-to="audio-capture" data-edge-label="record" data-edge-key="1" data-edge-id="hardware-audio"><rect x="395.4" y="121" width="49.2" height="18" rx="3" class="c-mask"/><text x="420" y="134" class="t-edge-default" font-size="10.5" text-anchor="middle">record</text></g>
-<g data-detail="context" data-edge-from="audio-capture" data-edge-to="voice-api" data-edge-label="WAV / HTTP" data-edge-key="2" data-edge-id="audio-voice"><rect x="663" y="158" width="74" height="18" rx="3" class="c-mask"/><text x="700" y="171" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">WAV / HTTP</text></g>
-<g data-detail="context" data-edge-from="voice-api" data-edge-to="stt" data-edge-label="decode" data-edge-key="3" data-edge-id="voice-stt"><rect x="1010.4" y="160" width="49.2" height="18" rx="3" class="c-mask"/><text x="1035" y="173" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">decode</text></g>
-<g data-detail="context" data-edge-from="stt" data-edge-to="intent-model" data-edge-label="text" data-edge-key="4" data-edge-id="stt-intent"><rect x="1313.6" y="160" width="36.8" height="18" rx="3" class="c-mask"/><text x="1332" y="173" class="t-edge-default" font-size="10.5" text-anchor="middle">text</text></g>
-<g data-detail="context" data-edge-from="intent-model" data-edge-to="orchestrator" data-edge-label="intent + confidence" data-edge-key="5" data-edge-id="intent-orchestrator"><rect x="1440.1" y="294" width="129.8" height="18" rx="3" class="c-mask"/><text x="1505" y="307" class="t-edge-default" font-size="10.5" text-anchor="middle">intent + confidence</text></g>
-<g data-detail="context" data-edge-from="orchestrator" data-edge-to="local-llm" data-edge-label="complex / unclear request ↔ analysis" data-edge-key="6" data-edge-id="orchestrator-local-llm"><rect x="1712.4" y="383" width="235.20000000000002" height="18" rx="3" class="c-mask"/><text x="1830" y="396" class="t-edge-default" font-size="10.5" text-anchor="middle">complex / unclear request ↔ analysis</text></g>
-<g data-detail="context" data-edge-from="orchestrator" data-edge-to="task-service" data-edge-label="task requests only" data-edge-key="7" data-edge-id="orchestrator-task"><rect x="1018.2" y="406" width="123.60000000000001" height="18" rx="3" class="c-mask"/><text x="1080" y="419" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">task requests only</text></g>
-<g data-detail="context" data-edge-from="orchestrator" data-edge-to="reminder-service" data-edge-label="reminder settings" data-edge-key="8" data-edge-id="orchestrator-reminder"><rect x="1316.3" y="500" width="117.4" height="18" rx="3" class="c-mask"/><text x="1375" y="513" class="t-edge-default" font-size="10.5" text-anchor="middle">reminder settings</text></g>
-<g data-detail="context" data-edge-from="orchestrator" data-edge-to="output-service" data-edge-label="clarification / response" data-edge-key="9" data-edge-id="orchestrator-output"><rect x="1814.6" y="538" width="160.8" height="18" rx="3" class="c-mask"/><text x="1895" y="551" class="t-edge-default" font-size="10.5" text-anchor="middle">clarification / response</text></g>
-<g data-detail="context" data-edge-from="task-service" data-edge-to="task-port" data-edge-label="uses" data-edge-key="10" data-edge-id="task-port-use"><rect x="791.6" y="798" width="36.8" height="18" rx="3" class="c-mask"/><text x="810" y="811" class="t-edge-default" font-size="10.5" text-anchor="middle">uses</text></g>
-<g data-detail="context" data-edge-from="task-service" data-edge-to="output-service" data-edge-label="task result → output text" data-edge-key="11" data-edge-id="task-result-output"><rect x="1431.5" y="754" width="167" height="18" rx="3" class="c-mask"/><text x="1515" y="767" class="t-edge-default" font-size="10.5" text-anchor="middle">task result → output text</text></g>
-<g data-detail="context" data-edge-from="eureka-adapter" data-edge-to="task-port" data-edge-label="implements" data-edge-key="12" data-edge-id="eureka-implements-task"><rect x="736" y="1023" width="74" height="18" rx="3" class="c-mask"/><text x="773" y="1036" class="t-edge-dashed" font-size="10.5" text-anchor="middle">implements</text></g>
-<g data-detail="context" data-edge-from="task-port" data-edge-to="eureka-adapter" data-edge-label="runtime call / result" data-edge-key="13" data-edge-id="task-port-adapter-call"><rect x="904.9" y="992" width="142.20000000000002" height="18" rx="3" class="c-mask"/><text x="976" y="1005" class="t-edge-default" font-size="10.5" text-anchor="middle">runtime call / result</text></g>
-<g data-detail="context" data-edge-from="eureka-adapter" data-edge-to="eureka-api" data-edge-label="HTTP / response" data-edge-key="14" data-edge-id="eureka-http"><rect x="827.5" y="1232" width="105" height="18" rx="3" class="c-mask"/><text x="880" y="1245" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">HTTP / response</text></g>
-<g data-detail="context" data-edge-from="scheduler" data-edge-to="reminder-service" data-edge-label="polling trigger" data-edge-key="15" data-edge-id="scheduler-triggers-reminder"><rect x="557.5" y="994" width="105" height="18" rx="3" class="c-mask"/><text x="610" y="1007" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">polling trigger</text></g>
-<g data-detail="context" data-edge-from="reminder-service" data-edge-to="task-port" data-edge-label="queries through TaskPort" data-edge-key="16" data-edge-id="reminder-task-port"><rect x="979.6" y="797" width="160.8" height="18" rx="3" class="c-mask"/><text x="1060" y="810" class="t-edge-default" font-size="10.5" text-anchor="middle">queries through TaskPort</text></g>
-<g data-detail="context" data-edge-from="reminder-service" data-edge-to="reminder-repo-port" data-edge-label="reads / writes" data-edge-key="17" data-edge-id="reminder-repo"><rect x="1302.6" y="810" width="98.8" height="18" rx="3" class="c-mask"/><text x="1352" y="823" class="t-edge-default" font-size="10.5" text-anchor="middle">reads / writes</text></g>
-<g data-detail="context" data-edge-from="db-adapter" data-edge-to="reminder-repo-port" data-edge-label="implements" data-edge-key="18" data-edge-id="db-implements-repo"><rect x="1223" y="1021" width="74" height="18" rx="3" class="c-mask"/><text x="1260" y="1034" class="t-edge-dashed" font-size="10.5" text-anchor="middle">implements</text></g>
-<g data-detail="context" data-edge-from="reminder-service" data-edge-to="output-service" data-edge-label="alert" data-edge-key="19" data-edge-id="reminder-output"><rect x="1458.5" y="647" width="43" height="18" rx="3" class="c-mask"/><text x="1480" y="660" class="t-messagebus" font-size="10.5" text-anchor="middle">alert</text></g>
-<g data-detail="context" data-edge-from="output-service" data-edge-to="http-response" data-edge-label="A · normal voice response / HTTP" data-edge-key="20" data-edge-id="output-http-response"><rect x="479.8" y="546" width="210.4" height="18" rx="3" class="c-mask"/><text x="585" y="559" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">A · normal voice response / HTTP</text></g>
-<g data-detail="context" data-edge-from="http-response" data-edge-to="raspberry-pi" data-edge-label="HTTP result" data-edge-key="21" data-edge-id="http-response-pi"><rect x="169.9" y="790" width="80.2" height="18" rx="3" class="c-mask"/><text x="210" y="803" class="t-edge-emphasis" font-size="10.5" text-anchor="middle">HTTP result</text></g>
-<g data-detail="context" data-edge-from="output-service" data-edge-to="output-port" data-edge-label="B · server push only" data-edge-key="22" data-edge-id="output-port-publish"><rect x="1832" y="798" width="136" height="18" rx="3" class="c-mask"/><text x="1900" y="811" class="t-messagebus" font-size="10.5" text-anchor="middle">B · server push only</text></g>
-<g data-detail="context" data-edge-from="websocket-adapter" data-edge-to="output-port" data-edge-label="implements" data-edge-key="23" data-edge-id="websocket-implements-output"><rect x="1553" y="1021" width="74" height="18" rx="3" class="c-mask"/><text x="1590" y="1034" class="t-edge-dashed" font-size="10.5" text-anchor="middle">implements</text></g>
-<g data-detail="context" data-edge-from="output-port" data-edge-to="websocket-adapter" data-edge-label="publish" data-edge-key="24" data-edge-id="output-port-adapter-call"><rect x="1872.3" y="1021" width="55.4" height="18" rx="3" class="c-mask"/><text x="1900" y="1034" class="t-messagebus" font-size="10.5" text-anchor="middle">publish</text></g>
-<g data-detail="context" data-edge-from="websocket-adapter" data-edge-to="raspberry-pi" data-edge-label="B · /ws/hardware/{user_id} · output / proactive_alert" data-edge-key="25" data-edge-id="websocket-pi"><rect x="1359.7" y="1208" width="340.6" height="18" rx="3" class="c-mask"/><text x="1530" y="1221" class="t-messagebus" font-size="10.5" text-anchor="middle">B · /ws/hardware/{user_id} · output / proactive_alert</text></g>
-<g data-detail="context" data-edge-from="raspberry-pi" data-edge-to="device-state" data-edge-label="received output → local state" data-edge-key="26" data-edge-id="pi-device-state"><rect x="114.1" y="1021" width="191.8" height="18" rx="3" class="c-mask"/><text x="210" y="1034" class="t-edge-default" font-size="10.5" text-anchor="middle">received output → local state</text></g>
-<g data-detail="context" data-edge-from="device-state" data-edge-to="hardware-output" data-edge-label="Pi-local ledState + ttsText + LCD" data-edge-key="27" data-edge-id="state-hardware-output"><rect x="101.7" y="1232" width="216.6" height="18" rx="3" class="c-mask"/><text x="210" y="1245" class="t-edge-default" font-size="10.5" text-anchor="middle">Pi-local ledState + ttsText + LCD</text></g>
-<g data-detail="context" data-edge-from="mock-adapter" data-edge-to="task-port" data-edge-label="test impl" data-edge-key="28" data-edge-id="mock-implements-task"><rect x="671.1" y="887" width="67.80000000000001" height="18" rx="3" class="c-mask"/><text x="705" y="900" class="t-edge-dashed" font-size="10.5" text-anchor="middle">test impl</text></g>
-<text x="1130" y="1320" class="t-muted" font-size="12">WebSocketAdapter: connected / PING / PONG = connection + heartbeat</text>
-<text x="1130" y="1343" class="t-muted" font-size="12">Application push: OutputService → OutputPublisherPort → WebSocketAdapter</text>
-<text x="1130" y="1366" class="t-muted" font-size="12">No device ACK · send success does not confirm physical playback</text>
-<text x="1130" y="1389" class="t-muted" font-size="12">Integration: heartbeat request_id policy + 10 sec voice budget unresolved</text>
-<g data-graph-role="legend"><g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="frontend" data-legend-x="50" data-legend-baseline="1460" data-legend-width="150"><rect x="50" y="1448" width="16" height="12" rx="2" class="c-frontend"/><text x="75" y="1460" class="t-muted" font-size="12">frontend</text></g><g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="backend" data-legend-x="230" data-legend-baseline="1460" data-legend-width="150"><rect x="230" y="1448" width="16" height="12" rx="2" class="c-backend"/><text x="255" y="1460" class="t-muted" font-size="12">backend</text></g><g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="database" data-legend-x="410" data-legend-baseline="1460" data-legend-width="150"><rect x="410" y="1448" width="16" height="12" rx="2" class="c-database"/><text x="435" y="1460" class="t-muted" font-size="12">database</text></g><g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="cloud" data-legend-x="590" data-legend-baseline="1460" data-legend-width="150"><rect x="590" y="1448" width="16" height="12" rx="2" class="c-cloud"/><text x="615" y="1460" class="t-muted" font-size="12">cloud</text></g><g data-legend-semantic-kind="messagebus" data-legend-kind="messagebus" data-legend-label="messagebus" data-legend-x="770" data-legend-baseline="1460" data-legend-width="150"><rect x="770" y="1448" width="16" height="12" rx="2" class="c-messagebus"/><text x="795" y="1460" class="t-muted" font-size="12">messagebus</text></g><g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="external" data-legend-x="950" data-legend-baseline="1460" data-legend-width="150"><rect x="950" y="1448" width="16" height="12" rx="2" class="c-external"/><text x="975" y="1460" class="t-muted" font-size="12">external</text></g></g>
-</svg>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)"></rect>
+
+        <!-- Boundaries (behind everything) -->
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Device / Hardware Layer" x="20" y="66" width="446" height="134" rx="12" class="c-region" stroke-width="1"></rect><text data-detail="context" x="40" y="190" class="t-muted" font-size="8">External Input Reference</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="Local Processing Layer" x="474" y="66" width="226" height="134" rx="12" class="c-region" stroke-width="1"></rect>
+
+        <path data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="Application Layer" class="c-region" stroke-width="1" d="M 722 64 H 1496 Q 1508 64 1508 76 V 444 Q 1508 456 1496 456 H 644 Q 632 456 632 444 V 230 Q 632 218 644 218 H 698 Q 710 218 710 206 V 76 Q 710 64 722 64 Z"></path>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="3" data-composition-frame-label="Ports" x="634" y="524" width="872" height="138" rx="12" class="c-region" stroke-width="1"></rect>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="4" data-composition-frame-label="Infrastructure / Adapter Layer" x="334" y="734" width="1172" height="138" rx="12" class="c-region" stroke-width="1"></rect>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="5" data-composition-frame-label="External Systems" x="634" y="944" width="872" height="128" rx="12" class="c-region" stroke-width="1"></rect>
+
+        
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="user" data-edge-to="hardware" data-edge-label="input" data-edge-key="0" data-edge-id="user-hardware" data-composition-points="200,136;250,136" d="M 200 136 L 250 136" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"></path>
+        <path data-edge-from="hardware" data-edge-to="audio-capture" data-edge-label="PCM" data-edge-key="1" data-edge-id="hardware-audio" data-composition-points="450,136;500,136" d="M 450 136 L 500 136" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        <path data-edge-from="audio-capture" data-edge-to="stt" data-edge-label="POST /api/voice · audio" data-edge-key="2" data-edge-id="audio-stt" data-composition-points="680,136;730,136" d="M 680 136 L 730 136" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        <path data-edge-from="stt" data-edge-to="intent-model" data-edge-label="text" data-edge-key="3" data-edge-id="stt-intent" data-composition-points="900,136;950,136" d="M 900 136 L 950 136" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        <path data-edge-from="intent-model" data-edge-to="orchestrator" data-edge-label="intent" data-edge-key="4" data-edge-id="intent-orchestrator" data-composition-points="1170,136;1220,136" d="M 1170 136 L 1220 136" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        <path data-edge-from="orchestrator" data-edge-to="task-service" data-edge-label="calls" data-edge-key="5" data-edge-id="orchestrator-task" data-composition-points="1335,180;1335,250;775,250;775,350" d="M 1335 180 L 1335 242 Q 1335 250 1327 250 L 783 250 Q 775 250 775 258 L 775 350" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"></path>
+        <path data-edge-from="task-service" data-edge-to="task-port" data-edge-label="uses" data-edge-key="6" data-edge-id="task-port-use" data-composition-points="775,436;785,550" data-composition-route="straight" d="M 775 436 L 785 550" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        
+        <path data-edge-from="eureka-adapter" data-edge-to="eureka-api" data-edge-label="HTTP / response" data-edge-key="8" data-edge-id="eureka-http" data-composition-points="785,852;785,970" d="M 785 852 L 785 970" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"></path>
+        <path data-edge-from="scheduler" data-edge-to="reminder-service" data-edge-label="triggers" data-edge-key="9" data-edge-id="scheduler-triggers-reminder" data-composition-points="470,842;470,1080;930,1080;930,393;950,393" d="M 470 842 L 470 1072 Q 470 1080 478 1080 L 922 1080 Q 930 1080 930 1072 L 930 401 Q 930 393 938 393 L 950 393" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"></path>
+        <g data-graph-role="automatic-crossover" style="--step:10">
+          <path data-graph-role="automatic-crossover-underlay" d="M 950 393 L 938 393 Q 930 393 930 401 L 930 588 Q 930 596 922 596 L 910 596" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"></path>
+          <path data-edge-from="reminder-service" data-edge-to="task-port" data-edge-label="queries" data-edge-key="10" data-edge-id="reminder-task-port" data-composition-points="950,393;930,393;930,596;910,596" data-composition-crossover="halo" data-composition-independent="true" d="M 950 393 L 938 393 Q 930 393 930 401 L 930 588 Q 930 596 922 596 L 910 596" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        </g>
+        
+        
+        <path data-edge-from="reminder-service" data-edge-to="output-service" data-edge-label="output" data-edge-key="13" data-edge-id="reminder-output" data-composition-points="1190,393;1250,393" d="M 1190 393 L 1250 393" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        <path data-edge-from="output-service" data-edge-to="output-port" data-edge-label="publishes" data-edge-key="14" data-edge-id="output-port-publish" data-composition-points="1365,436;1365,550" d="M 1365 436 L 1365 550" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path>
+        
+        <path data-edge-from="websocket-adapter" data-edge-to="raspberry-pi" data-edge-label="proactive_alert / output" data-edge-key="16" data-edge-id="websocket-pi" data-composition-points="1365,842;1365,970" d="M 1365 842 L 1365 970" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"></path>
+        
+
+        <!-- Components -->
+        <path data-edge-id="eureka-implements-task" data-edge-from="task-port" data-edge-to="eureka-adapter" data-edge-label="via implementation" data-edge-key="7" data-composition-points="785,642;785,760" d="M 785 642 L 785 760" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><path data-edge-id="websocket-implements-output" data-edge-from="output-port" data-edge-to="websocket-adapter" data-edge-label="via implementation" data-edge-key="15" data-composition-points="1365,642;1365,760" d="M 1365 642 L 1365 760" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><g data-graph-role="automatic-crossover"><path data-graph-role="automatic-crossover-underlay" d="M 1060 180 L 1060 270" fill="none" stroke="var(--mask)" stroke-width="5.5" pointer-events="none"></path><path data-edge-id="intent-llm" data-edge-from="intent-model" data-edge-to="llm-service" data-edge-label="complex / low confidence" data-edge-key="18" data-composition-points="1060,180;1060,270" d="M 1060 180 L 1060 270" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)" data-composition-crossover="halo" data-composition-independent="true"></path></g><g data-graph-role="automatic-crossover"><path data-graph-role="automatic-crossover-underlay" d="M 1190 300 L 1207 300 L 1207 211 L 1280 211 L 1280 180" fill="none" stroke="var(--mask)" stroke-width="5.5" pointer-events="none"></path><path data-edge-id="llm-orchestrator" data-edge-from="llm-service" data-edge-to="orchestrator" data-edge-label="analysis · no tool needed" data-edge-key="19" data-composition-points="1190,300;1207,300;1207,211;1280,211;1280,180" d="M 1190 300 L 1207 300 L 1207 211 L 1280 211 L 1280 180" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)" data-composition-crossover="halo" data-composition-independent="true"></path></g><path data-edge-id="orchestrator-reminder" data-edge-from="orchestrator" data-edge-to="reminder-service" data-edge-label="reminder intent" data-edge-key="20" data-composition-points="1380,180;1380,333;1150,333;1150,350" d="M 1380 180 L 1380 333 L 1150 333 L 1150 350" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><g data-graph-role="automatic-crossover"><path data-graph-role="automatic-crossover-underlay" d="M 850 436 L 850 477 L 1450 477 L 1450 436" fill="none" stroke="var(--mask)" stroke-width="5.5" pointer-events="none"></path><path data-edge-id="task-output" data-edge-from="task-service" data-edge-to="output-service" data-edge-label="task result" data-edge-key="21" data-composition-points="850,436;850,477;1450,477;1450,436" d="M 850 436 L 850 477 L 1450 477 L 1450 436" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)" data-composition-crossover="halo" data-composition-independent="true"></path></g><path data-edge-id="output-http-response" data-edge-from="output-service" data-edge-to="raspberry-pi" data-edge-label="HTTP Response · normal reply" data-edge-key="22" data-composition-points="1480,393;1524,393;1524,1011;1480,1011" d="M 1480 393 L 1524 393 L 1524 1011 L 1480 1011" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><path data-edge-id="clarification-output" data-edge-from="orchestrator" data-edge-to="output-service" data-edge-label="clarification · no mutation" data-edge-key="23" data-composition-points="1425,180;1425,350" d="M 1425 180 L 1425 350" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><path data-edge-id="llm-mcp" data-edge-from="llm-service" data-edge-to="mcp-client" data-edge-label="selected structured tool call" data-edge-key="24" data-composition-points="1190,320;1220,320" d="M 1190 320 L 1220 320" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><path data-edge-id="mcp-orchestrator" data-edge-from="mcp-client" data-edge-to="orchestrator" data-edge-label="tool call / result · validate and route" data-edge-key="25" data-composition-points="1345,265;1345,180" d="M 1345 265 L 1345 180" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"></path><g id="node-user" data-node-id="user" data-node-label="User / PTT" tabindex="0" role="button" aria-label="Focus User / PTT, voice command / feedback, Device / Hardware Layer · External Input Reference" aria-pressed="false" data-node-kind="external" data-node-sublabel="voice command / feedback" data-node-context="Device / Hardware Layer · External Input Reference">
+          <title>User / PTT · voice command / feedback · Device / Hardware Layer · External Input Reference</title>
+          <rect x="40" y="100" width="160" height="72" rx="6" class="c-mask"></rect>
+          <rect x="40" y="100" width="160" height="72" rx="6" class="c-external" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="person" class="semantic-sigil s-external" transform="translate(46 106) scale(0.6875)">
+            <circle cx="8" cy="4.5" r="2.5"></circle><path d="M3 14v-2a5 5 0 0 1 10 0v2"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="120" y="134" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">User / PTT</text>
+        <text data-detail="context" x="120" y="150" class="t-muted" font-size="9" text-anchor="middle">voice command / feedback</text>
+        </g>
+
+        <g id="node-hardware" data-node-id="hardware" data-node-label="Hardware" tabindex="0" role="button" aria-label="Focus Hardware, PTT · microphone · LED · LCD · speaker, Device / Hardware Layer · external I/O reference" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="PTT · microphone · LED · LCD · speaker" data-node-context="Device / Hardware Layer · external I/O reference">
+          <title>Hardware · PTT · microphone · LED · LCD · speaker · Device / Hardware Layer · external I/O reference</title>
+          <rect x="250" y="92" width="200" height="88" rx="6" class="c-mask"></rect>
+          <rect x="250" y="92" width="200" height="88" rx="6" class="c-frontend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(256 98) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"></rect>
+            <path d="M2 6.5h12"></path>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"></circle>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"></circle>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="350" y="134" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Hardware</text>
+        <text data-detail="context" x="350" y="150" class="t-muted" font-size="8.4" text-anchor="middle">PTT · microphone · LED · LCD · speaker</text>
+        </g>
+
+        <g id="node-audio-capture" data-node-id="audio-capture" data-node-label="Audio Capture" tabindex="0" role="button" aria-label="Focus Audio Capture, Raspberry Pi · WAV recording, Local Processing Layer · external input reference" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Raspberry Pi · WAV recording" data-node-context="Local Processing Layer · external input reference">
+          <title>Audio Capture · Raspberry Pi · WAV recording · Local Processing Layer · external input reference</title>
+          <rect x="500" y="100" width="180" height="72" rx="6" class="c-mask"></rect>
+          <rect x="500" y="100" width="180" height="72" rx="6" class="c-frontend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(506 106) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"></rect>
+            <path d="M2 6.5h12"></path>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"></circle>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"></circle>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="590" y="134" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Audio Capture</text>
+        <text data-detail="context" x="590" y="150" class="t-muted" font-size="9" text-anchor="middle">Raspberry Pi · WAV recording</text>
+        </g>
+
+        <g id="node-stt" data-node-id="stt" data-node-label="STT" tabindex="0" role="button" aria-label="Focus STT, server speech → text · ko-KR, Application Layer · server-side STT" aria-pressed="false" data-node-kind="backend" data-node-sublabel="server speech → text · ko-KR" data-node-context="Application Layer · server-side STT">
+          <title>STT · server speech → text · ko-KR · Application Layer · server-side STT</title>
+          <rect x="730" y="100" width="170" height="72" rx="6" class="c-mask"></rect>
+          <rect x="730" y="100" width="170" height="72" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(736 106) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="815" y="134" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">STT</text>
+        <text data-detail="context" x="815" y="150" class="t-muted" font-size="9" text-anchor="middle">server speech → text · ko-KR</text>
+        </g><g id="node-llm-service" data-node-id="llm-service" data-node-label="LLM Service" tabindex="0" role="button" aria-label="Focus LLM Service, complex request · parameters · clarification · tool selection, Application Layer · conditional LLM analysis" aria-pressed="false" data-node-kind="backend" data-node-sublabel="complex request · parameters · clarification · tool selection" data-node-context="Application Layer · conditional LLM analysis" data-node-tag="taskName / dueAt / priority / reminderAt; ambiguity detection; MCP tool selection; no direct mutation">
+          <title>LLM Service · complex request · parameters · clarification · tool selection · Application Layer · conditional LLM analysis</title>
+          <rect x="970" y="270" width="220" height="60" rx="6" class="c-mask"></rect>
+          <rect x="970" y="270" width="220" height="60" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(976 276) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1080" y="295" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">LLM Service</text>
+        <text data-detail="context" x="1080" y="312" class="t-muted" font-size="8.5" text-anchor="middle"><tspan x="1080" y="310">complex request · parameters</tspan><tspan x="1080" y="323">clarification · tool selection</tspan></text>
+        </g><g id="node-mcp-client" data-node-id="mcp-client" data-node-label="MCP Client" tabindex="0" role="button" aria-label="Focus MCP Client, structured tool invocation · external tool access, Application integration boundary" aria-pressed="false" data-node-kind="backend" data-node-sublabel="structured tool invocation · external tool access" data-node-context="Application Layer · integration client" data-node-tag="Tool selection from LLM; task mutations delegated to Orchestrator and Application Services; no direct Eureka access"><title>MCP Client · tool invocation interface · structured tool call / external tool access · task changes via Orchestrator / Application Service</title><rect x="1220" y="265" width="145" height="60" rx="6" class="c-mask" stroke-width="1.5"></rect><rect x="1220" y="265" width="145" height="60" rx="6" class="c-backend" stroke-width="1.5"></rect><text data-node-label="" data-detail-anchor="" x="1292.5" y="282" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">MCP Client</text><text data-detail="context" x="1292.5" y="300" class="t-muted" font-size="8" text-anchor="middle"><tspan x="1292.5" y="300">structured tool invocation</tspan><tspan x="1292.5" y="315">external tool access</tspan></text></g>
+
+        <g id="node-intent-model" data-node-id="intent-model" data-node-label="Lightweight Intent Model" tabindex="0" role="button" aria-label="Focus Lightweight Intent Model, classify · confidence · parameters, Application Layer · server-side intent analysis" aria-pressed="false" data-node-kind="backend" data-node-sublabel="classify · confidence · parameters" data-node-context="Application Layer · server-side intent analysis">
+          <title>Lightweight Intent Model · classify · confidence · parameters · Application Layer · server-side intent analysis</title>
+          <rect x="950" y="92" width="220" height="88" rx="6" class="c-mask"></rect>
+          <rect x="950" y="92" width="220" height="88" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(956 98) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1060" y="134" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Lightweight Intent Model</text>
+        <text data-detail="context" x="1060" y="150" class="t-muted" font-size="9" text-anchor="middle">classify · confidence · parameters</text>
+        </g>
+
+        <g id="node-orchestrator" data-node-id="orchestrator" data-node-label="Intent / LLM Orchestrator" tabindex="0" role="button" aria-label="Focus Intent / LLM Orchestrator, validate AI / MCP · route services, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="validate AI / MCP · route services" data-node-context="Application Layer" data-node-tag="validate AI analysis and MCP results; route Application Services; clarification → no data mutation">
+          <title>Intent / LLM Orchestrator · validate AI / MCP · route services · Application Layer</title>
+          <rect x="1220" y="92" width="230" height="88" rx="6" class="c-mask"></rect>
+          <rect x="1220" y="92" width="230" height="88" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(1226 98) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1335" y="134" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Intent / LLM Orchestrator</text>
+        <text data-detail="context" x="1335" y="150" class="t-muted" font-size="9" text-anchor="middle">validate AI / MCP · route services</text>
+        <text data-detail="fine" x="1335" y="169" class="t-muted" font-size="8" text-anchor="middle">clarification → no data mutation</text></g>
+
+        <g id="node-task-service" data-node-id="task-service" data-node-label="TaskService" tabindex="0" role="button" aria-label="Focus TaskService, create · list · status · complete · update, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="create · list · status · complete · update" data-node-context="Application Layer">
+          <title>TaskService · create · list · status · complete · update · Application Layer</title>
+          <rect x="660" y="350" width="230" height="86" rx="6" class="c-mask"></rect>
+          <rect x="660" y="350" width="230" height="86" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(666 356) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="775" y="391" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">TaskService</text>
+        <text data-detail="context" x="775" y="407" class="t-muted" font-size="8.8" text-anchor="middle">create · list · status · complete · update</text>
+        </g>
+
+        <g id="node-reminder-service" data-node-id="reminder-service" data-node-label="ReminderService" tabindex="0" role="button" aria-label="Focus ReminderService, deadline check · deduplication · reminder policy, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="deadline check · deduplication · reminder policy" data-node-context="Application Layer">
+          <title>ReminderService · deadline check · deduplication · reminder policy · Application Layer</title>
+          <rect x="950" y="350" width="240" height="86" rx="6" class="c-mask"></rect>
+          <rect x="950" y="350" width="240" height="86" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="clock" class="semantic-sigil s-backend" transform="translate(956 356) scale(0.6875)">
+            <circle cx="8" cy="8" r="6"></circle><path d="M8 4v4l3 2"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1070" y="391" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ReminderService</text>
+        <text data-detail="context" x="1070" y="407" class="t-muted" font-size="8.2" text-anchor="middle">deadline check · deduplication · reminder policy</text>
+        </g>
+
+        <g id="node-output-service" data-node-id="output-service" data-node-label="OutputService" tabindex="0" role="button" aria-label="Focus OutputService, user response · TTS text · LCD output, Application Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="user response · TTS text · LCD output" data-node-context="Application Layer">
+          <title>OutputService · user response · TTS text · LCD output · Application Layer</title>
+          <rect x="1250" y="350" width="230" height="86" rx="6" class="c-mask"></rect>
+          <rect x="1250" y="350" width="230" height="86" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(1256 356) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1365" y="391" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OutputService</text>
+        <text data-detail="context" x="1365" y="407" class="t-muted" font-size="9" text-anchor="middle">user response · TTS text · LCD output</text>
+        </g>
+
+        <g id="node-task-port" data-node-id="task-port" data-node-label="TaskPort" tabindex="0" role="button" aria-label="Focus TaskPort, create_task · get_tasks · get_task_status · complete_task · update_task, Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="create_task · get_tasks · get_task_status · complete_task · update_task" data-node-tag="Application ↔ Eureka abstraction" data-node-context="Ports">
+          <title>TaskPort · create_task · get_tasks · get_task_status · complete_task · update_task · Ports</title>
+          <rect x="660" y="550" width="250" height="92" rx="6" class="c-mask"></rect>
+          <rect x="660" y="550" width="250" height="92" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(666 556) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="785" y="577" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">TaskPort</text>
+        <text data-detail="context" x="785" y="610" class="t-muted" font-size="8" text-anchor="middle"><tspan x="785" y="610">create_task · get_tasks · get_task_status</tspan><tspan x="785" y="624">complete_task · update_task</tspan></text>
+        <text data-detail="context" x="785" y="593" class="t-backend" font-size="8" text-anchor="middle">Application ↔ Eureka abstraction</text>
+        </g>
+
+        
+
+        <g id="node-output-port" data-node-id="output-port" data-node-label="OutputPublisherPort" tabindex="0" role="button" aria-label="Focus OutputPublisherPort, server-initiated output / proactive_alert, Ports" aria-pressed="false" data-node-kind="backend" data-node-sublabel="server-initiated output / proactive_alert" data-node-tag="asynchronous publishing only" data-node-context="Ports">
+          <title>OutputPublisherPort · server-initiated output / proactive_alert · Ports</title>
+          <rect x="1250" y="550" width="230" height="92" rx="6" class="c-mask"></rect>
+          <rect x="1250" y="550" width="230" height="92" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-backend" transform="translate(1256 556) scale(0.6875)">
+            <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"></path>
+            <circle cx="5" cy="4.5" r="1" class="sigil-fill"></circle>
+            <circle cx="10.5" cy="8" r="1" class="sigil-fill"></circle>
+            <circle cx="7" cy="11.5" r="1" class="sigil-fill"></circle>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1365" y="594" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OutputPublisherPort</text>
+        <text data-detail="context" x="1365" y="610" class="t-muted" font-size="8.4" text-anchor="middle">server-initiated output / proactive_alert</text>
+        <text data-detail="fine" x="1365" y="634" class="t-backend" font-size="7" text-anchor="middle">asynchronous publishing only</text>
+        </g>
+
+        <g id="node-scheduler" data-node-id="scheduler" data-node-label="SchedulerAdapter" tabindex="0" role="button" aria-label="Focus SchedulerAdapter, periodic reminder trigger, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="periodic reminder trigger" data-node-tag="driver" data-node-context="Infrastructure / Adapter Layer">
+          <title>SchedulerAdapter · periodic reminder trigger · Infrastructure / Adapter Layer · driver</title>
+          <rect x="360" y="760" width="220" height="82" rx="6" class="c-mask"></rect>
+          <rect x="360" y="760" width="220" height="82" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="clock" class="semantic-sigil s-backend" transform="translate(366 766) scale(0.6875)">
+            <circle cx="8" cy="8" r="6"></circle><path d="M8 4v4l3 2"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="470" y="799" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SchedulerAdapter</text>
+        <text data-detail="context" x="470" y="815" class="t-muted" font-size="9" text-anchor="middle">periodic reminder trigger</text>
+        <text data-detail="fine" x="470" y="834" class="t-backend" font-size="7" text-anchor="middle">driver</text>
+        </g>
+
+        <g id="node-eureka-adapter" data-node-id="eureka-adapter" data-node-label="EurekaTaskAdapter" tabindex="0" role="button" aria-label="Focus EurekaTaskAdapter, TaskPort implementation · HTTP mapping, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="backend" data-node-sublabel="TaskPort implementation · HTTP mapping" data-node-tag="adapter" data-node-context="Infrastructure / Adapter Layer">
+          <title>EurekaTaskAdapter · TaskPort implementation · HTTP mapping · Infrastructure / Adapter Layer · adapter</title>
+          <rect x="660" y="760" width="250" height="92" rx="6" class="c-mask"></rect>
+          <rect x="660" y="760" width="250" height="92" rx="6" class="c-backend" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-backend" transform="translate(666 766) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="785" y="804" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">EurekaTaskAdapter</text>
+        <text data-detail="context" x="785" y="820" class="t-muted" font-size="9" text-anchor="middle">TaskPort implementation · HTTP mapping</text>
+        <text data-detail="fine" x="785" y="844" class="t-backend" font-size="7" text-anchor="middle">adapter</text>
+        </g>
+
+        
+
+        <g id="node-websocket-adapter" data-node-id="websocket-adapter" data-node-label="WebSocketAdapter" tabindex="0" role="button" aria-label="Focus WebSocketAdapter, output / proactive_alert delivery, Infrastructure / Adapter Layer" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="output / proactive_alert delivery" data-node-tag="adapter" data-node-context="Infrastructure / Adapter Layer">
+          <title>WebSocketAdapter · output / proactive_alert delivery · Infrastructure / Adapter Layer</title>
+          <rect x="1250" y="760" width="230" height="82" rx="6" class="c-mask"></rect>
+          <rect x="1250" y="760" width="230" height="82" rx="6" class="c-messagebus" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(1256 766) scale(0.6875)">
+            <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"></path>
+            <circle cx="5" cy="4.5" r="1" class="sigil-fill"></circle>
+            <circle cx="10.5" cy="8" r="1" class="sigil-fill"></circle>
+            <circle cx="7" cy="11.5" r="1" class="sigil-fill"></circle>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1365" y="799" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">WebSocketAdapter</text>
+        <text data-detail="context" x="1365" y="815" class="t-muted" font-size="9" text-anchor="middle">output / proactive_alert delivery</text>
+        <text data-detail="fine" x="1365" y="834" class="t-messagebus" font-size="7" text-anchor="middle">adapter</text>
+        </g>
+
+        <g id="node-eureka-api" data-node-id="eureka-api" data-node-label="Eureka Process API" tabindex="0" role="button" aria-label="Focus Eureka Process API, task source of truth · REST, External Systems" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="task source of truth · REST" data-node-context="External Systems">
+          <title>Eureka Process API · task source of truth · REST · External Systems</title>
+          <rect x="660" y="970" width="250" height="82" rx="6" class="c-mask"></rect>
+          <rect x="660" y="970" width="250" height="82" rx="6" class="c-cloud" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(666 976) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="785" y="1009" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Eureka Process API</text>
+        <text data-detail="context" x="785" y="1025" class="t-muted" font-size="9" text-anchor="middle">task source of truth · REST</text>
+        </g>
+
+        <g id="node-raspberry-pi" data-node-id="raspberry-pi" data-node-label="Raspberry Pi" tabindex="0" role="button" aria-label="Focus Raspberry Pi, Edge-TTS · LED · LCD · speaker, External Systems · external output reference" aria-pressed="false" data-node-kind="external" data-node-sublabel="Edge-TTS · LED · LCD · speaker" data-node-context="External Systems · external output reference" data-node-tag="Hardware Output · speech synthesis on Raspberry Pi">
+          <title>Raspberry Pi · Edge-TTS · LED · LCD · speaker · External Systems · external output reference</title>
+          <rect x="1250" y="970" width="230" height="82" rx="6" class="c-mask"></rect>
+          <rect x="1250" y="970" width="230" height="82" rx="6" class="c-external" stroke-width="1.5"></rect>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(1256 976) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"></rect>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"></path>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1365" y="1009" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Raspberry Pi</text>
+        <text data-detail="context" x="1365" y="1025" class="t-muted" font-size="9" text-anchor="middle">Edge-TTS · LED · LCD · speaker</text>
+        </g>
+
+        
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="user" data-edge-to="hardware" data-edge-label="input" data-edge-key="0" data-edge-id="user-hardware">
+          <rect x="208" y="116" width="34" height="14" rx="3" class="c-mask"></rect>
+          <text x="225" y="126" class="t-edge-emphasis" font-size="8" text-anchor="middle">input</text>
+        </g>
+        <g data-detail="context" data-edge-from="hardware" data-edge-to="audio-capture" data-edge-label="PCM" data-edge-key="1" data-edge-id="hardware-audio">
+          <rect x="460" y="116" width="30" height="14" rx="3" class="c-mask"></rect>
+          <text x="475" y="126" class="t-edge-default" font-size="8" text-anchor="middle">PCM</text>
+        </g>
+        <g data-detail="context" data-edge-from="audio-capture" data-edge-to="stt" data-edge-label="POST /api/voice · audio" data-edge-key="2" data-edge-id="audio-stt"><path d="M 705 144 V 176" fill="none" class="a-default" stroke-width="0.6" stroke-dasharray="2 3" pointer-events="none" opacity="0.5"></path>
+          <rect x="645" y="180" width="120" height="14" rx="3" class="c-mask"></rect>
+          <text x="705" y="190" class="t-edge-default" font-size="8" text-anchor="middle">POST /api/voice · audio</text>
+        </g>
+        <g data-detail="context" data-edge-from="stt" data-edge-to="intent-model" data-edge-label="text" data-edge-key="3" data-edge-id="stt-intent">
+          <rect x="910" y="116" width="30" height="14" rx="3" class="c-mask"></rect>
+          <text x="925" y="126" class="t-edge-default" font-size="8" text-anchor="middle">text</text>
+        </g>
+        <g data-detail="context" data-edge-from="intent-model" data-edge-to="orchestrator" data-edge-label="intent" data-edge-key="4" data-edge-id="intent-orchestrator">
+          <rect x="1175.6" y="116" width="38.8" height="14" rx="3" class="c-mask"></rect>
+          <text x="1195" y="126" class="t-edge-default" font-size="8" text-anchor="middle">intent</text>
+        </g>
+        <g data-detail="context" data-edge-from="orchestrator" data-edge-to="task-service" data-edge-label="calls" data-edge-key="5" data-edge-id="orchestrator-task">
+          <rect x="798" y="230" width="34" height="14" rx="3" class="c-mask"></rect>
+          <text x="815" y="240" class="t-edge-emphasis" font-size="8" text-anchor="middle">calls</text>
+        </g>
+        <g data-detail="context" data-edge-from="task-service" data-edge-to="task-port" data-edge-label="uses" data-edge-key="6" data-edge-id="task-port-use">
+          <rect x="765" y="454" width="30" height="14" rx="3" class="c-mask"></rect>
+          <text x="780" y="464" class="t-edge-default" font-size="8" text-anchor="middle">uses</text>
+        </g>
+        
+        <g data-detail="context" data-edge-from="eureka-adapter" data-edge-to="eureka-api" data-edge-label="HTTP / response" data-edge-key="8" data-edge-id="eureka-http">
+          <rect x="697" y="904" width="82" height="14" rx="3" class="c-mask"></rect>
+          <text x="738" y="914" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTP / response</text>
+        </g>
+        <g data-detail="context" data-edge-from="scheduler" data-edge-to="reminder-service" data-edge-label="triggers" data-edge-key="9" data-edge-id="scheduler-triggers-reminder">
+          <rect x="675.8" y="1060" width="48.4" height="14" rx="3" class="c-mask"></rect>
+          <text x="700" y="1070" class="t-edge-emphasis" font-size="8" text-anchor="middle">triggers</text>
+        </g>
+        <g data-detail="context" data-edge-from="reminder-service" data-edge-to="task-port" data-edge-label="queries" data-edge-key="10" data-edge-id="reminder-task-port">
+          <rect x="880.4000000000001" y="487.5" width="43.6" height="14" rx="3" class="c-mask"></rect>
+          <text x="902.2" y="497.5" class="t-edge-default" font-size="8" text-anchor="middle">queries</text>
+        </g>
+        
+        
+        <g data-detail="context" data-edge-from="reminder-service" data-edge-to="output-service" data-edge-label="output" data-edge-key="13" data-edge-id="reminder-output">
+          <rect x="1200.6" y="373" width="38.8" height="14" rx="3" class="c-mask"></rect>
+          <text x="1220" y="383" class="t-edge-default" font-size="8" text-anchor="middle">output</text>
+        </g>
+        <g data-detail="context" data-edge-from="output-service" data-edge-to="output-port" data-edge-label="publishes" data-edge-key="14" data-edge-id="output-port-publish">
+          <rect x="1305.8000000000002" y="486" width="53.199999999999996" height="14" rx="3" class="c-mask"></rect>
+          <text x="1332.4" y="496" class="t-edge-default" font-size="8" text-anchor="middle">publishes</text>
+        </g>
+        
+        <g data-detail="context" data-edge-from="websocket-adapter" data-edge-to="raspberry-pi" data-edge-label="proactive_alert / output" data-edge-key="16" data-edge-id="websocket-pi">
+          <rect x="1233.8000000000002" y="899" width="125.19999999999999" height="14" rx="3" class="c-mask"></rect>
+          <text x="1296.4" y="909" class="t-edge-emphasis" font-size="8" text-anchor="middle">proactive_alert / output</text>
+        </g>
+        
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+        <g data-detail="context" data-edge-id="eureka-implements-task" data-edge-from="task-port" data-edge-to="eureka-adapter" data-edge-label="via implementation" data-edge-key="7"><rect x="736.7" y="697" width="96.60000000000001" height="16" rx="3" class="c-mask"></rect><text x="785" y="708" class="t-edge-default" font-size="8" text-anchor="middle">via implementation</text></g><g data-detail="context" data-edge-id="websocket-implements-output" data-edge-from="output-port" data-edge-to="websocket-adapter" data-edge-label="via implementation" data-edge-key="15"><rect x="1316.7" y="697" width="96.60000000000001" height="16" rx="3" class="c-mask"></rect><text x="1365" y="708" class="t-edge-default" font-size="8" text-anchor="middle">via implementation</text></g><g data-detail="context" data-edge-id="intent-llm" data-edge-from="intent-model" data-edge-to="llm-service" data-edge-label="complex / low confidence" data-edge-key="18"><rect x="1072.6" y="211" width="124.80000000000001" height="16" rx="3" class="c-mask"></rect><text x="1135" y="222" class="t-edge-default" font-size="8" text-anchor="middle">complex / low confidence</text></g><g data-detail="context" data-edge-id="llm-orchestrator" data-edge-from="llm-service" data-edge-to="orchestrator" data-edge-label="analysis · no tool needed" data-edge-key="19"><rect x="1163" y="191" width="111" height="16" rx="3" class="c-mask"></rect><text x="1218" y="202" class="t-edge-default" font-size="8" text-anchor="middle">analysis · no tool</text></g><g data-detail="context" data-edge-id="orchestrator-reminder" data-edge-from="orchestrator" data-edge-to="reminder-service" data-edge-label="reminder intent" data-edge-key="20"><rect x="1268.75" y="334" width="82.5" height="16" rx="3" class="c-mask"></rect><text x="1310" y="345" class="t-edge-default" font-size="8" text-anchor="middle">reminder intent</text></g><g data-detail="context" data-edge-id="task-output" data-edge-from="task-service" data-edge-to="output-service" data-edge-label="task result" data-edge-key="21"><rect x="1078.15" y="457" width="63.7" height="16" rx="3" class="c-mask"></rect><text x="1110" y="468" class="t-edge-default" font-size="8" text-anchor="middle">task result</text></g><g data-detail="context" data-edge-id="output-http-response" data-edge-from="output-service" data-edge-to="raspberry-pi" data-edge-label="HTTP Response · normal reply" data-edge-key="22" transform="rotate(-90 1517 700)"><rect x="1445.2" y="689" width="143.6" height="16" rx="3" class="c-mask"></rect><text x="1517" y="700" class="t-edge-default" font-size="8" text-anchor="middle">HTTP Response · normal reply</text></g><g data-detail="context" data-edge-id="clarification-output" data-edge-from="orchestrator" data-edge-to="output-service" data-edge-label="clarification · no mutation" data-edge-key="23" transform="rotate(-90 1455 265)"><rect x="1418.45" y="254" width="73.1" height="16" rx="3" class="c-mask"></rect><text x="1455" y="265" class="t-edge-default" font-size="8" text-anchor="middle">clarification</text></g><g data-edge-id="llm-mcp" data-edge-from="llm-service" data-edge-to="mcp-client" data-edge-label="selected structured tool call" data-edge-key="24" data-detail="context"><rect x="1190.4" y="301" width="29.2" height="16" rx="3" class="c-mask"></rect><text x="1205" y="312" class="t-edge-default" font-size="8" text-anchor="middle">tool</text></g><g data-edge-id="mcp-orchestrator" data-edge-from="mcp-client" data-edge-to="orchestrator" data-edge-label="tool call / result · validate and route" data-edge-key="25" data-detail="context" transform="rotate(-90 1358 219)"><rect x="1329" y="208" width="58" height="16" rx="3" class="c-mask"></rect><text x="1358" y="219" class="t-edge-default" font-size="8" text-anchor="middle">MCP result</text></g><g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="Device / Hardware Layer">
+          <rect data-graph-role="structural-frame-label-mask" x="24" y="71" width="147.82194928387096" height="17" rx="3" class="c-mask"></rect>
+          <text data-boundary-label="" x="28" y="84.98709777419354" class="t-cloud" font-size="9.987097774193549" font-weight="600">Device / Hardware Layer</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="region" data-composition-frame-label="Local Processing Layer">
+          <rect data-graph-role="structural-frame-label-mask" x="478" y="71" width="141.82969061935484" height="17" rx="3" class="c-mask"></rect>
+          <text data-boundary-label="" x="482" y="84.98709777419354" class="t-cloud" font-size="9.987097774193549" font-weight="600">Local Processing Layer</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="Application Layer">
+          <rect data-graph-role="structural-frame-label-mask" x="714" y="71" width="111.8683972967742" height="17" rx="3" class="c-mask"></rect>
+          <text data-boundary-label="" x="718" y="84.98709777419354" class="t-cloud" font-size="9.987097774193549" font-weight="600">Application Layer</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="3" data-composition-frame-kind="region" data-composition-frame-label="Ports">
+          <rect data-graph-role="structural-frame-label-mask" x="638" y="529" width="39.961293322580644" height="17" rx="3" class="c-mask"></rect>
+          <text data-boundary-label="" x="642" y="542.9870977741936" class="t-cloud" font-size="9.987097774193549" font-weight="600">Ports</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="4" data-composition-frame-kind="region" data-composition-frame-label="Infrastructure / Adapter Layer">
+          <rect data-graph-role="structural-frame-label-mask" x="338" y="739" width="189.76775993548387" height="17" rx="3" class="c-mask"></rect>
+          <text data-boundary-label="" x="342" y="752.9870977741936" class="t-cloud" font-size="9.987097774193549" font-weight="600">Infrastructure / Adapter Layer</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="5" data-composition-frame-kind="region" data-composition-frame-label="External Systems">
+          <rect data-graph-role="structural-frame-label-mask" x="638" y="949" width="105.87613863225806" height="17" rx="3" class="c-mask"></rect>
+          <text data-boundary-label="" x="642" y="962.9870977741936" class="t-cloud" font-size="9.987097774193549" font-weight="600">External Systems</text>
+        </g>
+
+        
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="1112" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="1132" data-legend-width="83">
+            <rect x="40" y="1123" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"></rect>
+            <text x="62" y="1132" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          </g>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="1132" data-legend-width="78">
+            <rect x="145" y="1123" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"></rect>
+            <text x="167" y="1132" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          </g>
+          
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Cloud" data-legend-x="350" data-legend-baseline="1132" data-legend-width="68">
+            <rect x="350" y="1123" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"></rect>
+            <text x="372" y="1132" class="t-muted" font-size="10" font-weight="500">Cloud</text>
+          </g>
+          <g data-legend-semantic-kind="messagebus" data-legend-kind="messagebus" data-legend-label="Message bus" data-legend-x="440" data-legend-baseline="1132" data-legend-width="98">
+            <rect x="440" y="1123" width="16" height="10" rx="2.5" class="c-messagebus" stroke-width="1"></rect>
+            <text x="462" y="1132" class="t-muted" font-size="10" font-weight="500">Message bus</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="560" data-legend-baseline="1132" data-legend-width="83">
+            <rect x="560" y="1123" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"></rect>
+            <text x="582" y="1132" class="t-muted" font-size="10" font-weight="500">External</text>
+          </g>
+        </g>
+      </svg>
       <p class="intent-trace-status no-print" id="intent-trace-status" role="status" aria-live="polite" aria-atomic="true"></p>
       <div class="diagram-guide no-print" id="diagram-guide" hidden role="dialog" aria-modal="false" aria-labelledby="diagram-guide-title">
         <div class="diagram-guide-head">
@@ -5495,9 +5560,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Primary request path</h3>
         </div>
         <ul>
-          <li>Pi records WAV 16kHz mono 16bit (max 15 sec), then POST /api/voice runs STT and Intent on the server.</li>
-          <li>The orchestrator selects the required Application Service and invokes Local LLM Service for complex requests; task intents use TaskService.</li>
-          <li>TaskService → TaskPort → EurekaTaskAdapter → Eureka Process API. OutputService returns the final voice output through HTTP, bypassing the push port.</li>
+          <li>External Pi capture → HTTP voice upload → server STT / intent. LLM Service selects MCP tools when needed.</li>
+          <li>MCP Client → Orchestrator: validate AI / MCP results, then route Application Services. Clarification means no data mutation.</li>
+          <li>TaskService → TaskPort → EurekaTaskAdapter. OutputService creates TTS text / LCD content; Pi performs speech synthesis and hardware output.</li>
         </ul>
       </div>
 
@@ -5510,7 +5575,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <li>SchedulerAdapter periodically triggers ReminderService.</li>
           <li>Completed tasks are excluded from reminder evaluation.</li>
           <li>When no custom time exists, the default reminder is one hour before dueAt.</li>
-          <li>OutputService → OutputPublisherPort → WebSocketAdapter → /ws/hardware/{user_id} → Raspberry Pi. Completed tasks are excluded; custom reminder time overrides the default; duplicate notifications are suppressed.</li>
+          <li>Deduplicated alert: OutputService → OutputPublisherPort → WebSocketAdapter → Pi. Persistence remains undecided.</li>
         </ul>
       </div>
 
@@ -5521,10 +5586,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         </div>
         <ul>
           <li>TaskPort contains create_task, get_tasks, get_task_status, complete_task, and update_task.</li>
-          <li>EurekaTaskAdapter is the runtime implementation; MockTaskAdapter is test-only.</li>
-          <li>WebSocketAdapter owns connection/heartbeat; OutputPublisherPort publishes server-initiated application output only. Pi owns Device State and Edge-TTS playback.</li>
-          <li>Unresolved: heartbeat request_id policy; End-to-end /api/voice response deadline from Raspberry Pi: 10 sec — review cumulative component budgets.</li>
-          <li>Source: 데스크펫 하드웨어 정리안 (MVP), 2026-10-07, pp. 5–11. LED proposal colors need design-team confirmation; no device ACK means send success is not playback confirmation.</li>
+          <li>EurekaTaskAdapter implements TaskPort. Runtime arrows lead to Eureka Process API, the task source of truth.</li>
+          <li>Normal response: OutputService → Raspberry Pi via HTTP. Server push: OutputPublisherPort → WebSocketAdapter.</li>
         </ul>
       </div>
     </div>
@@ -14039,7 +14102,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     "group": "Hardware",
     "interface": "IButtonInput",
     "endpoint": "Internal interface · Raspberry Pi GPIO",
-    "callMethod": "GPIO 17 interrupt · internal pull-up · pressed LOW",
+    "callMethod": "Raspberry Pi GPIO Event 또는 Interrupt",
     "processing": "asynchronous event-driven",
     "input": [
       "buttonState: pressed | released"
@@ -14051,41 +14114,40 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     "error": [
       "debouncing: 반복 입력 디바운싱",
       "deviceError: 입력 장치 오류 로그"
-    ],
-    "note": "PTT recording only; max 15 seconds. No Pi VAD or STT."
+    ]
   },
   {
     "group": "Hardware",
     "interface": "IAudioCapture",
     "endpoint": "Internal interface · Raspberry Pi audio device",
-    "callMethod": "ALSA / I2S / googlevoicehat-soundcard",
+    "callMethod": "Raspberry Pi Internal Audio Device API",
     "processing": "asynchronous",
     "input": [
       "event: START_RECORDING | STOP_RECORDING"
     ],
     "output": [
       "requestId: string",
-      "audioFormat: WAV 16kHz mono 16bit",
+      "audioFormat: WAV | PCM",
       "audioData: binary",
-      "durationMs: number"
+      "durationMs: number",
+      "sampleRate: number"
     ],
     "timeout": "maxRecordingTimeSec: 15 · 초과 시 현재까지의 음성 처리",
     "error": [
       "microphoneConnectionFailure: MIC_ERROR",
       "audioGenerationFailure: AUDIO_CAPTURE_ERROR"
-    ],
-    "note": "Complete recording on release or max 15 seconds, then upload the WAV through IVoiceUpload."
+    ]
   },
   {
     "group": "Hardware",
     "interface": "IHardwareOutput",
     "endpoint": "Internal interface · device control",
-    "callMethod": "Edge-TTS 합성 후 ALSA 재생, rpi_ws281x(GPIO 12), ST7789 SPI0",
+    "callMethod": "Raspberry Pi: Edge-TTS synthesis → audio playback / LED / LCD control",
     "processing": "asynchronous",
     "input": [
       "ttsText: string | null",
-      "ledState: IDLE | LISTENING | THINKING | SPEAKING | ALERT | ERROR",
-      "lcdExpression: idle | listening | thinking | speaking | alert | surprised | happy",
+      "ledState: IDLE | LISTENING | SPEAKING | ERROR",
+      "lcdExpression: string | null",
       "lcdText: string | null"
     ],
     "output": [
@@ -14095,114 +14157,20 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     ],
     "timeout": "비정상 지속 시 출력 종료 후 IDLE 복귀",
     "error": [
-      "partialDeviceFailure: 정상 장치로 최소 출력 제공",
-      "ttsFailure: 합성 실패 시 LCD 텍스트로 안내"
+      "partialDeviceFailure: 가능한 출력 채널로 최소 피드백 제공"
     ],
-    "note": "Pi-local LED policy; ledBrightnessMax: 0.3. IDLE → green / solid; LISTENING → yellow / blink; THINKING → white / blink; SPEAKING → blue / blink; ALERT → orange / fast_blink; ERROR → red / blink. Backend network payload contains no LED fields. PDF notes THINKING / ALERT / ERROR colors still need design-team confirmation."
-  },
-  {
-    "group": "Hardware",
-    "interface": "IBackendConnection",
-    "endpoint": "/ws/hardware/{user_id}",
-    "input": [
-      "wsUrl: ws://{host}:{port}/ws/hardware/{user_id}"
-    ],
-    "output": [
-      "receivedEvent: connected | proactive_alert | output | PONG",
-      "payload: object",
-      "connectionState: CONNECTED | DISCONNECTED | RECONNECTING"
-    ],
-    "callMethod": "WebSocket · Python asyncio + websockets",
-    "processing": "asynchronous, persistent connection",
-    "timeout": "heartbeatIntervalSec: 30 · PONG이 없으면 연결 끊김으로 보고 재연결",
-    "error": [
-      "connectionLost: reconnect every 3 sec; Backend retries undelivered notifications after reconnect",
-      "invalidMessage: JSON 파싱 실패 시 버리고 로그 기록"
-    ],
-    "note": "Pi → Backend: text PING only. user_id identifies one pet per user. Application events carry request_id; heartbeat request_id policy requires confirmation. No device ACK; replay cannot confirm physical playback."
-  },
-  {
-    "group": "Hardware",
-    "interface": "IVoiceUpload",
-    "endpoint": "POST /api/voice",
-    "input": [
-      "requestId: string",
-      "userId: string",
-      "audio: WAV binary · 16kHz mono 16bit · max 15 seconds"
-    ],
-    "output": [
-      "requestId: string",
-      "status: OK | NO_SPEECH | STT_ERROR | ERROR",
-      "sttText: string | null",
-      "type: task_created | task_completed | … | error",
-      "output.tts: string",
-      "output.lcd.expression: string",
-      "output.lcd.text: string"
-    ],
-    "callMethod": "HTTP POST /api/voice (multipart/form-data)",
-    "processing": "asynchronous; final output in HTTP response",
-    "timeout": "maxWaitSec: 10 · 응답이 없으면 ERROR 표시 후 IDLE 복귀",
-    "error": [
-      "uploadFailure: ERROR 표시 후 재입력 안내",
-      "noSpeech: 다시 말해 달라는 안내 출력"
-    ],
-    "note": "Internal requestId/userId/sttText map to wire request_id/user_id/stt_text. End-to-end /api/voice response deadline from Raspberry Pi: 10 sec. Component timeout budget requires integration review."
-  },
-  {
-    "group": "Hardware",
-    "interface": "IDeviceStatusMonitor",
-    "endpoint": "Internal interface · Raspberry Pi only",
-    "input": [
-      "checkIntervalSec: 60"
-    ],
-    "output": [
-      "wifi: connected | disconnected",
-      "mic: ok | error",
-      "speaker: ok | error",
-      "led: ok | error",
-      "lcd: ok | error"
-    ],
-    "callMethod": "Raspberry Pi 시스템 명령 및 장치 초기화 결과 확인",
-    "processing": "periodic + on change",
-    "error": [
-      "wifiDisconnected: ERROR 표시; 재연결되면 IDLE",
-      "deviceFailure: 실패한 장치를 제외하고 나머지로 동작, 로그 기록"
-    ],
-    "note": "Hardware-local LED and logs only; device_status is not transmitted to Backend."
-  },
-  {
-    "group": "Hardware",
-    "interface": "IDeviceStateManager",
-    "endpoint": "Internal interface · Raspberry Pi only",
-    "input": [
-      "BUTTON_PRESSED / BUTTON_RELEASED",
-      "HTTP voice response",
-      "proactive_alert / output",
-      "playback complete / device or communication failure"
-    ],
-    "output": [
-      "ledState: IDLE | LISTENING | THINKING | SPEAKING | ALERT | ERROR",
-      "IHardwareOutput receives local state, ttsText and LCD data"
-    ],
-    "callMethod": "IDeviceStateManager → IHardwareOutput",
-    "processing": "event-driven",
-    "error": [
-      "invalidTransition: THINKING 중 버튼 입력 무시",
-      "alertWhileBusy: IDLE이 아니면 알림을 보류하고 현재 출력 종료 후 재생",
-      "stuckState: 비정상적으로 오래 지속되면 IDLE로 강제 복귀"
-    ],
-    "note": "IDLE → LISTENING: BUTTON_PRESSED\nLISTENING → THINKING: BUTTON_RELEASED or 15 sec limit\nTHINKING → SPEAKING: successful POST /api/voice response\nIDLE → ALERT: proactive_alert\nSPEAKING / ALERT → IDLE: TTS playback complete\nANY → ERROR: device failure, communication failure, response timeout\noutput: SPEAKING; type:error: ERROR → playback → IDLE\nconnected: keep IDLE; PONG: connection liveness only. Timeout: ERROR → IDLE."
+    "note": "LED states: IDLE=green/solid · LISTENING=yellow/blink · SPEAKING=blue/blink"
   },
   {
     "group": "STT",
     "interface": "SpeechToText",
-    "endpoint": "Server internal interface · after POST /api/voice",
-    "callMethod": "POST /api/voice → Backend STT → Lightweight Intent Model",
+    "endpoint": "Internal service interface",
+    "callMethod": "Audio Capture → Backend STT service (server-side)",
     "processing": "asynchronous",
     "input": [
-      "requestId: string (mapped from request_id)",
-      "audioData: WAV binary",
-      "audioFormat: WAV 16kHz mono 16bit",
+      "requestId: string",
+      "audioData: binary",
+      "audioFormat: WAV | PCM",
       "language: ko-KR"
     ],
     "output": [
@@ -14215,14 +14183,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       "NO_SPEECH 반환",
       "불명확한 음성은 재입력 요청",
       "STT_ERROR 반환 및 로그 기록"
-    ],
-    "note": "STT runs on the server; Raspberry Pi only captures and uploads audio. Existing targetMs:1000 / maxMs:5000 retained; review within the 10 sec end-to-end budget."
+    ]
   },
   {
     "group": "Lightweight Intent Model",
     "interface": "ClassifyIntent",
     "endpoint": "Internal function / lightweight model",
-    "callMethod": "Server STT → Lightweight Intent Model → Intent / LLM Orchestrator",
+    "callMethod": "Backend Internal Function 또는 Lightweight Model",
     "processing": "synchronous",
     "input": [
       "requestId: string",
@@ -14232,42 +14199,45 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       "requestId: string",
       "intent: string",
       "confidence: number",
+      "parameters: object | null",
       "requiresLLM: boolean"
     ],
     "timeout": "targetMs: 500 · maxMs: 1000",
     "error": [
       "lowConfidence: LLM 분석으로 전달",
       "missingInformation: 임의 실행 없이 재질문 단계로 전달"
-    ]
+    ],
+    "note": "Intent classification, confidence, simple parameter extraction, requiresLLM decision only. Actual execution and response generation belong to Application Services."
   },
   {
     "group": "Lightweight Intent Model",
-    "interface": "HandleSimpleCommand",
-    "endpoint": "Internal application interface",
-    "callMethod": "Intent / LLM Orchestrator → required Application Service",
+    "interface": "ParseSimpleRequest",
+    "endpoint": "Internal lightweight parsing interface",
+    "callMethod": "Lightweight Intent Model → Intent / LLM Orchestrator (or LLM Service when requiresLLM)",
     "processing": "synchronous",
     "input": [
-      "intent: string",
-      "command: string",
-      "parameters: object"
+      "requestId: string",
+      "text: string"
     ],
     "output": [
-      "success: boolean",
-      "responseText: string | null",
-      "robotCommand: object | null"
+      "requestId: string",
+      "intent: string",
+      "confidence: number",
+      "parameters: object | null",
+      "requiresLLM: boolean"
     ],
     "timeout": "maxMs: 1000",
     "error": [
-      "requiresExternalData: LLM Layer로 전달",
-      "requiresContext: LLM Layer로 전달"
+      "lowConfidence → LLM Service",
+      "missingInformation → Orchestrator clarification"
     ],
-    "note": "Simple requests may avoid LLM inference; backend services still own task/reminder changes."
+    "note": "Classification and simple parameter extraction only. No task execution, response generation, or hardware command generation."
   },
   {
     "group": "Intent / LLM",
     "interface": "AnalyzeUserRequest",
-    "endpoint": "Server internal Local LLM analysis",
-    "callMethod": "Intent / LLM Orchestrator → Local LLM Service",
+    "endpoint": "LLM analysis interface",
+    "callMethod": "Lightweight Intent Model → LLM Service → Intent / LLM Orchestrator; selected tool → MCP Client → Intent / LLM Orchestrator",
     "processing": "asynchronous",
     "input": [
       "requestId: string",
@@ -14288,13 +14258,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       "ambiguousDateOrTask: 확인 요청",
       "llmFailure: 처리 실패 상태 반환"
     ],
-    "note": "Local LLM runs on the server. MCP contract remains in scope. Existing maxMs:5000 retained; end-to-end budget unresolved."
+    "note": "Complex request interpretation; taskName / dueAt / priority / reminderAt extraction; ambiguity and missing-information detection; clarification generation; MCP tool selection. No direct data mutation or Eureka API access. reminderAt 미지정 시 null; 기본 정책은 ReminderService 적용."
   },
   {
     "group": "Intent / LLM",
     "interface": "CallMCPTool",
     "endpoint": "MCP tool interface",
-    "callMethod": "Backend MCP Client → MCP Tool",
+    "callMethod": "LLM Service → MCP Client → Intent / LLM Orchestrator → Application Service (task operations)",
     "processing": "asynchronous",
     "input": [
       "requestId: string",
@@ -14313,37 +14283,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       "toolFailure: 오류 코드와 원인 반환",
       "permissionDenied: 권한 없는 기능 실행 금지",
       "duplicateRequest: requestId로 중복 방지"
-    ]
-  },
-  {
-    "group": "Desk Pet Backend API",
-    "interface": "VoiceAPI",
-    "endpoint": "POST /api/voice",
-    "callMethod": "Raspberry Pi → POST /api/voice → STT → Lightweight Intent Model → Intent / LLM Orchestrator → required Application Service → OutputService → HTTP Response",
-    "processing": "asynchronous server work; final result in the same HTTP response",
-    "input": [
-      "Content-Type: multipart/form-data",
-      "audio: WAV binary · WAV 16kHz mono 16bit · max 15 seconds",
-      "user_id: string",
-      "request_id: string"
     ],
-    "output": [
-      "request_id: string",
-      "status: OK | NO_SPEECH | STT_ERROR | ERROR",
-      "stt_text: string | null",
-      "type: task_created | task_completed | … | error",
-      "output.tts: string",
-      "output.lcd.expression: string",
-      "output.lcd.text: string"
-    ],
-    "timeout": "End-to-end /api/voice response deadline from Raspberry Pi: 10 sec",
-    "error": [
-      "NO_SPEECH: ask to speak again",
-      "STT_ERROR: speech recognition failure",
-      "ERROR: backend processing failure",
-      "Pi timeout: ERROR display then IDLE; timeout does not confirm cancellation of server work"
-    ],
-    "note": "TaskService is selected only for task intents. Normal response bypasses OutputPublisherPort / WebSocketAdapter. Existing STT / LLM / Eureka component timeouts remain unchanged; their combined budget requires team review. Example: {\n  \"request_id\": \"req_20261007_001\",\n  \"status\": \"OK\",\n  \"stt_text\": \"내일 오후 3시까지 보고서 작성 추가해줘\",\n  \"type\": \"task_created\",\n  \"output\": {\n    \"tts\": \"보고서 작성 업무를 등록했어요.\",\n    \"lcd\": {\n      \"expression\": \"happy\",\n      \"text\": \"업무 등록 완료\"\n    }\n  }\n}"
+    "note": "MCP is in use. LLM proposes/selects a tool; MCP Client handles the structured invocation interface and external analysis/read-tool access. Task-mutating tools are delegated through Orchestrator validation and TaskService / ReminderService, then TaskPort → EurekaTaskAdapter → Eureka Process API. MCP results are validated by the Orchestrator. Clarification required: no data mutation. No direct LLM/MCP → Eureka mutation."
   },
   {
     "group": "Desk Pet Backend API",
@@ -14352,15 +14293,15 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     "callMethod": "Desk Pet Backend API → TaskService → TaskPort",
     "processing": "asynchronous",
     "input": [
-      "request_id",
-      "task_name",
-      "due_at: ISO-8601 datetime",
+      "requestId",
+      "taskName",
+      "dueAt: ISO-8601 datetime",
       "priority",
-      "reminder_at: ISO-8601 datetime | null"
+      "reminderAt: ISO-8601 datetime | null"
     ],
     "output": [
       "success",
-      "item_id: string | null",
+      "itemId: string | null",
       "status: string | null",
       "message"
     ],
@@ -14368,8 +14309,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     "error": [
       "missingRequiredInformation: 추가 입력 요청",
       "eurekaFailure: 등록되지 않은 업무를 성공 처리하지 않음"
-    ],
-    "note": "Task REST API retained for API clients; Raspberry Pi voice requests use POST /api/voice. Internal/Eureka naming is mapped at the Backend boundary."
+    ]
   },
   {
     "group": "Desk Pet Backend API",
@@ -14378,84 +14318,80 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     "callMethod": "Desk Pet Backend API → TaskService → TaskPort",
     "processing": "asynchronous",
     "input": [
-      "request_id",
-      "filter: status / due_before / priority"
+      "requestId",
+      "filter: status / dueBefore / priority"
     ],
     "output": [
       "success",
-      "tasks: item_id / task_name / due_at / priority / status(todo|doing|done|hold)"
+      "tasks: itemId / taskName / dueAt / priority / status(todo|doing|done|hold)"
     ],
     "timeout": "maxMs: 5000",
     "error": [
       "queryFailure: 임의 업무를 생성하지 않고 조회 실패 반환"
-    ],
-    "note": "Task REST API retained for API clients; Raspberry Pi voice requests use POST /api/voice. Internal/Eureka naming is mapped at the Backend boundary."
+    ]
   },
   {
     "group": "Desk Pet Backend API",
     "interface": "CompleteTaskAPI",
-    "endpoint": "POST /api/tasks/{item_id}/complete",
+    "endpoint": "POST /api/tasks/{itemId}/complete",
     "callMethod": "Desk Pet Backend API → TaskService → TaskPort",
     "processing": "asynchronous",
     "input": [
-      "item_id: string"
+      "itemId: string"
     ],
     "output": [
       "success",
-      "item_id: string",
+      "itemId: string",
       "status: done | null"
     ],
     "timeout": "maxMs: 5000",
     "error": [
       "taskNotFound: 완료 처리하지 않음",
       "ambiguousTask: 대상 업무 확인 요청"
-    ],
-    "note": "Task REST API retained for API clients; Raspberry Pi voice requests use POST /api/voice. Internal/Eureka naming is mapped at the Backend boundary."
+    ]
   },
   {
     "group": "Desk Pet Backend API",
     "interface": "GetTaskStatusAPI",
-    "endpoint": "GET /api/tasks/{item_id}/status",
+    "endpoint": "GET /api/tasks/{itemId}/status",
     "callMethod": "Desk Pet Backend API → TaskService → TaskPort",
     "processing": "asynchronous",
     "input": [
-      "item_id: string"
+      "itemId: string"
     ],
     "output": [
       "success",
-      "item_id: string",
+      "itemId: string",
       "status: todo | doing | done | hold",
-      "total_stages",
-      "completed_stages"
+      "totalStages",
+      "completedStages"
     ],
     "timeout": "maxMs: 5000",
     "error": [
       "statusQueryFailure: 기존 값을 추정하지 않고 실패 반환"
-    ],
-    "note": "Task REST API retained for API clients; Raspberry Pi voice requests use POST /api/voice. Internal/Eureka naming is mapped at the Backend boundary."
+    ]
   },
   {
     "group": "Desk Pet Backend API",
     "interface": "UpdateTaskAPI",
-    "endpoint": "PUT /api/tasks/{item_id}",
+    "endpoint": "PUT /api/tasks/{itemId}",
     "callMethod": "Desk Pet Backend API → TaskService → TaskPort",
     "processing": "asynchronous",
     "input": [
-      "item_id",
-      "task_name: string | null",
-      "due_at: ISO-8601 datetime | null",
+      "itemId",
+      "taskName: string | null",
+      "dueAt: ISO-8601 datetime | null",
       "priority: string | null"
     ],
     "output": [
       "success",
-      "task: item_id / task_name / due_at / priority"
+      "task: itemId / taskName / dueAt / priority"
     ],
     "timeout": "maxMs: 5000",
     "error": [
       "taskNotFound: 변경하지 않음",
       "invalidInput: 변경하지 않고 입력 오류 반환"
-    ],
-    "note": "Task REST API retained for API clients; Raspberry Pi voice requests use POST /api/voice. Internal/Eureka naming is mapped at the Backend boundary."
+    ]
   },
   {
     "group": "Eureka Process API",
@@ -14576,39 +14512,40 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     ],
     "output": [
       "type: string",
-      "tts: string → output.tts",
-      "lcd.expression: string → output.lcd.expression",
-      "lcd.text: string → output.lcd.text"
+      "tts: string | null",
+      "lcd.expression: string | null",
+      "lcd.text: string | null"
     ],
     "timeout": "targetMs: 200 · maxMs: 500",
     "error": [
       "partialGenerationFailure: 사용 가능한 채널로 최소 피드백 제공"
     ],
-    "note": "OutputService generates TTS text, not audio. Normal voice result → HTTP Response; server-initiated events → OutputPublisherPort. Raspberry Pi determines LED state/color/mode."
+    "note": "TTS용 문장만 생성. 음성 합성 / LED 제어는 Raspberry Pi 책임. 일반 응답은 HTTP로 Pi에 반환; server-initiated output / proactive_alert만 OutputPublisherPort 사용."
   },
   {
     "group": "Output / WebSocket",
     "interface": "SendOutputCommand",
-    "endpoint": "/ws/hardware/{user_id} · server-initiated push only",
+    "endpoint": "Server-initiated WebSocket push only",
     "callMethod": "OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi",
     "processing": "asynchronous",
     "input": [
       "event: output | proactive_alert",
-      "type: string (error for error output)",
+      "type: string",
       "user_id: string",
       "request_id: string",
-      "output.tts: string",
-      "output.lcd.expression: string",
-      "output.lcd.text: string"
+      "output.tts: string | null",
+      "output.lcd.expression: string | null",
+      "output.lcd.text: string | null"
     ],
     "output": [
-      "send_success: boolean (Backend WebSocket send result only)"
+      "WebSocket send success / failure (not device playback confirmation)"
     ],
-    "timeout": "WebSocket send failure is handled as a transport failure; no Pi ACK timeout",
+    "timeout": "WebSocket send failure is a delivery failure; no device playback ACK is assumed",
     "error": [
-      "sendFailure: record undelivered notification for retry policy"
+      "networkFailure: 전달 실패 기록",
+      "proactiveAlertFailure: 미전달 상태 기록"
     ],
-    "note": "No audio/LED/LCD playback acknowledgement from Pi. Send success does not prove device playback. Voice API HTTP responses are excluded; no LED or binary audio fields."
+    "note": "일반 음성 요청의 HTTP Response는 이 계약을 거치지 않음."
   },
   {
     "group": "Output / WebSocket",
@@ -14617,61 +14554,20 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     "callMethod": "OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi",
     "processing": "asynchronous",
     "input": [
+      "event: proactive_alert"
+    ],
+    "output": [
       "event: proactive_alert",
       "type: deadline_approaching",
       "user_id: string",
-      "request_id: string"
-    ],
-    "output": [
+      "request_id: string",
       "output.tts: string",
       "output.lcd.expression: alert",
       "output.lcd.text: string"
     ],
     "error": [
       "전달 실패 시 미전달 알림으로 기록 후 재처리 정책 적용"
-    ],
-    "note": "{\n  \"event\": \"proactive_alert\",\n  \"type\": \"deadline_approaching\",\n  \"user_id\": \"team-park-sihyeon\",\n  \"request_id\": \"alert_<task_id>_<due_at>\",\n  \"output\": {\n    \"tts\": \"보고서 검토 마감이 1시간 남았어요!\",\n    \"lcd\": {\n      \"expression\": \"alert\",\n      \"text\": \"마감 1시간 전\"\n    }\n  }\n}"
-  },
-  {
-    "group": "Output / WebSocket",
-    "interface": "output WebSocket event",
-    "endpoint": "/ws/hardware/{user_id}",
-    "callMethod": "OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi",
-    "processing": "server-initiated asynchronous push",
-    "input": [
-      "event: output",
-      "type: string | error",
-      "user_id: string",
-      "request_id: string"
-    ],
-    "output": [
-      "output.tts: string",
-      "output.lcd.expression: string",
-      "output.lcd.text: string"
-    ],
-    "error": [
-      "Errors use event: output, type: error"
-    ],
-    "note": "Pi enters SPEAKING, or ERROR for type:error, then returns to IDLE after playback. Normal Voice API results return via HTTP. No standalone error event."
-  },
-  {
-    "group": "Output / WebSocket",
-    "interface": "Connection / Heartbeat",
-    "endpoint": "/ws/hardware/{user_id}",
-    "callMethod": "Raspberry Pi IBackendConnection ↔ WebSocketAdapter",
-    "processing": "persistent connection / heartbeat",
-    "input": [
-      "Pi → Backend: text PING every 30 sec"
-    ],
-    "output": [
-      "Backend → Pi: connected on connect",
-      "Backend → Pi: PONG response"
-    ],
-    "timeout": "heartbeatIntervalSec:30; reconnectIntervalSec:3; exact missing-PONG deadline not specified in MVP",
-    "error": [
-      "Connection loss: reconnect; invalid application JSON: discard and log"
-    ],
-    "note": "connected / PING / PONG belong to WebSocketAdapter connection management, not OutputService. Application events use request_id. Heartbeat request_id policy requires confirmation; no JSON heartbeat format assumed."
+    ]
   }
 ];
 
@@ -14679,9 +14575,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       var groupKind = { 'Desk Pet Backend API': 'public', 'Eureka Process API': 'external' };
       var nodeGroups = {
         hardware: ['Hardware'], 'audio-capture': ['Hardware'], stt: ['STT'], 'intent-model': ['Lightweight Intent Model'],
-        orchestrator: ['Intent / LLM'], 'task-service': ['Desk Pet Backend API'], 'task-port': ['Desk Pet Backend API'],
+        orchestrator: ['Intent / LLM'], 'llm-service': ['Intent / LLM'], 'mcp-client': ['Intent / LLM'], 'task-service': ['Desk Pet Backend API'], 'task-port': ['Desk Pet Backend API'],
         'eureka-adapter': ['Eureka Process API'], 'eureka-api': ['Eureka Process API'], 'output-service': ['Output / WebSocket'],
-        'output-port': ['Output / WebSocket'], 'websocket-adapter': ['Output / WebSocket'], 'raspberry-pi': ['Hardware', 'Output / WebSocket'], 'voice-api': ['Desk Pet Backend API', 'STT'], 'http-response': ['Desk Pet Backend API'], 'local-llm': ['Intent / LLM'], 'device-state': ['Hardware'], 'hardware-output': ['Hardware'],
+        'output-port': ['Output / WebSocket'], 'websocket-adapter': ['Output / WebSocket'], 'raspberry-pi': ['Output / WebSocket'],
         'reminder-service': ['Reminder Policy'], scheduler: ['Reminder Policy']
       };
       var reminderPolicy = [
@@ -14689,7 +14585,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         'completed 업무 제외',
         '사용자 지정 reminder가 있으면 해당 값 사용',
         '없으면 기본 dueAt 1시간 전',
-        '중복 알림 방지 후 필요 시 OutputService 호출',
+        '중복 알림 방지 후 필요 시 OutputService 호출 · 저장 구현체는 미확정',
         'SchedulerAdapter → ReminderService → OutputService → OutputPublisherPort → WebSocketAdapter → Raspberry Pi로 proactive_alert 전달'
       ];
 
@@ -14760,7 +14656,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         if (!list.children.length) {
           var empty = document.createElement('div');
           empty.className = 'interface-contract-group-note';
-          empty.textContent = 'MockTaskAdapter는 runtime이 아닌 E2E contract validation용 대체 구현체입니다.';
+          empty.textContent = '추가 계약이 없습니다.';
           list.appendChild(empty);
         }
         group.appendChild(list);
@@ -14795,7 +14691,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         panel.appendChild(groups);
         var meta = document.createElement('div');
         meta.className = 'interface-contracts-meta';
-        addText(meta, 'span', '', contracts.length + ' contracts / events');
+        addText(meta, 'span', '', '21 contracts / events');
         addText(meta, 'span', '', '/api/* = Desk Pet Backend API');
         addText(meta, 'span', '', '/_api_/* = Eureka Process API');
         panel.appendChild(meta);
