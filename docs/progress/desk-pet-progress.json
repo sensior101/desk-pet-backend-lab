@@ -1,0 +1,114 @@
+{
+  "snapshot": "2026-10-28",
+  "exportedAt": "2026-10-28T05:28:58.845Z",
+  "tasks": [
+    {
+      "id": "B01",
+      "owner": "backend",
+      "title": "Eureka 실제 등록·목록 조회",
+      "status": "done"
+    },
+    {
+      "id": "A01",
+      "owner": "ai",
+      "title": "Gemini → Decision 텍스트 호출",
+      "status": "done"
+    },
+    {
+      "id": "B02",
+      "owner": "backend",
+      "title": "/api/text 등록·조회 흐름",
+      "status": "done"
+    },
+    {
+      "id": "B03",
+      "owner": "backend",
+      "title": "재질문 pending 연결",
+      "status": "done"
+    },
+    {
+      "id": "A02",
+      "owner": "ai",
+      "title": "20문항 AI 평가 실행·결과 기록",
+      "status": "partial"
+    },
+    {
+      "id": "B04",
+      "owner": "backend",
+      "title": "Eureka 완료·마감 변경 실제 메서드",
+      "status": "todo"
+    },
+    {
+      "id": "B05",
+      "owner": "backend",
+      "title": "tasks.handle() 나머지 3개 action",
+      "status": "todo"
+    },
+    {
+      "id": "A03",
+      "owner": "ai",
+      "title": "평가 실패 문항 개선·목표 달성",
+      "status": "todo"
+    },
+    {
+      "id": "B06",
+      "owner": "backend",
+      "title": "실제 Eureka → Gemini → /api/text 통합 검증",
+      "status": "blocked"
+    },
+    {
+      "id": "B07",
+      "owner": "backend",
+      "title": "오류·목록 경계 처리",
+      "status": "partial"
+    },
+    {
+      "id": "A04",
+      "owner": "ai",
+      "title": "WAV 직접 입력·STT 품질 검증",
+      "status": "todo"
+    },
+    {
+      "id": "B08",
+      "owner": "backend",
+      "title": "POST /api/voice 구현",
+      "status": "todo"
+    },
+    {
+      "id": "B09",
+      "owner": "backend",
+      "title": "음성 전체 흐름·응답 시간",
+      "status": "todo"
+    },
+    {
+      "id": "B10",
+      "owner": "backend",
+      "title": "마감 알림 체크·기록",
+      "status": "todo"
+    },
+    {
+      "id": "B11",
+      "owner": "backend",
+      "title": "WS 재연결·앱 시작 루프",
+      "status": "todo"
+    },
+    {
+      "id": "B12",
+      "owner": "backend",
+      "title": "Docker·Pi 실기기 연결 시연",
+      "status": "todo"
+    },
+    {
+      "id": "A05",
+      "owner": "ai",
+      "title": "최종 AI 평가·실패 사례 정리",
+      "status": "todo"
+    },
+    {
+      "id": "B13",
+      "owner": "backend",
+      "title": "3개 시나리오·재질문 리허설",
+      "status": "todo"
+    }
+  ]
+}

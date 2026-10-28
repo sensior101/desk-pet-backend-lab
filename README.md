@@ -8,6 +8,7 @@ Mock 환경 및 개인 개발 기록을 정리하는 저장소입니다.
 ## Structure
 
 - `docs/architecture/` : 시스템 및 백엔드 아키텍처
+- `docs/progress/` : 개발 진도 확인
 - `api-tests/` : Eureka API 검증 코드
 - `mock/` : Mock Server 및 테스트용 코드
 - `notes/` : 백엔드 개발 메모
