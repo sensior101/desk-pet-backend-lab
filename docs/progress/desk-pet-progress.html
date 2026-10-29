@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desk Pet 개발 진도표 · 2026-10-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink:#142332; --muted:#597080; --line:#dce7e8; --bg:#f3f7f6;
+      --paper:#fff; --navy:#102c3b; --mint:#0c997f; --mint-pale:#dcf5ec;
+      --blue:#245a9b; --blue-pale:#e6f0ff; --amber:#a76412; --amber-pale:#fff1d8;
+      --red:#a33d40; --red-pale:#ffe9e8; --shadow:0 10px 30px #18343d0d;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.55}
+    .hero{background:radial-gradient(circle at 85% 15%,#1e6970 0,transparent 34%),linear-gradient(125deg,#102c3b,#163f4b);color:#fff;padding:52px max(24px,calc((100vw - 1150px)/2)) 58px}
+    .eyebrow{font-size:12px;letter-spacing:.13em;font-weight:800;color:#9ce8d6;text-transform:uppercase}
+    h1{font-size:clamp(30px,5vw,47px);letter-spacing:-.045em;line-height:1.17;margin:12px 0}
+    .hero p{max-width:760px;margin:0;color:#d5e7e8}
+    .hero .meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+    .hero .meta span{border:1px solid #82b7b766;border-radius:100px;padding:6px 12px;font-size:12px;color:#e3f2f1}
+    main{max-width:1200px;margin:-28px auto 70px;padding:0 24px}
+    .summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+    .stat{background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);padding:18px 20px}
+    .stat .label{color:var(--muted);font-size:13px;font-weight:700}
+    .stat strong{display:block;font-size:29px;line-height:1.2;margin-top:7px;letter-spacing:-.04em}
+    .stat small{display:block;color:var(--muted);margin-top:4px;font-size:12px}
+    .section{margin-top:32px}
+    h2{font-size:22px;margin:0 0 15px;letter-spacing:-.03em}
+    .intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:13px}
+    .interface-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .interface-grid .panel{padding:17px}
+    .interface-grid h3{font-size:15px;margin:0 0 7px}
+    .interface-grid p{font-size:13px;color:var(--muted);margin:0}
+    .interface-grid .badge{display:inline-block;margin-top:10px}
+    .panel{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:var(--shadow)}
+    .panel p{margin:0 0 10px}
+    .panel p:last-child{margin:0}
+    .panel ul{padding-left:20px;margin:8px 0 0}
+    .panel li{margin:5px 0}
+    .warning{border-left:4px solid #d68a30}
+    .owner-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .owner-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .owner-head h3{font-size:18px;margin:0}
+    .owner-head span{font-size:12px;color:var(--muted);font-weight:700}
+    .track{height:9px;border-radius:9px;background:#e9eff0;overflow:hidden;margin:13px 0 6px}
+    .fill{height:100%;background:var(--mint);border-radius:9px;transition:width .25s}
+    .owner-ai .fill{background:var(--blue)}
+    .owner-next{color:var(--muted);font-size:13px}
+    .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:0 0 16px}
+    button{font:inherit;cursor:pointer}
+    .chip,.action{border:1px solid #cbdadb;background:#fff;border-radius:100px;padding:8px 14px;font-size:13px;font-weight:700;color:#36505b}
+    .chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+    .action{border-radius:9px}
+    .spacer{flex:1}
+    .hint{font-size:12px;color:var(--muted);margin:0 0 15px}
+    .phase{margin-top:27px}
+    .phase-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .phase-title h3{font-size:17px;margin:0}
+    .phase-title span{font-size:12px;color:var(--muted)}
+    .phase-title:after{content:"";height:1px;background:var(--line);flex:1}
+    .task-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .task{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:17px 18px;box-shadow:var(--shadow)}
+    .task-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+    .order{color:#798d95;font-size:12px;font-weight:800;letter-spacing:.06em}
+    .badge{font-size:11px;font-weight:800;border-radius:100px;padding:3px 8px}
+    .owner.backend{background:var(--mint-pale);color:#067560}
+    .owner.ai{background:var(--blue-pale);color:var(--blue)}
+    .state.done{background:var(--mint-pale);color:#067560}
+    .state.partial{background:var(--amber-pale);color:var(--amber)}
+    .state.todo{background:#eaf0f1;color:#506772}
+    .state.blocked{background:var(--red-pale);color:var(--red)}
+    .task h4{font-size:16px;margin:10px 0 5px;letter-spacing:-.025em}
+    .task p{font-size:13px;color:#4f6571;margin:5px 0}
+    .task .done-when{border-top:1px solid var(--line);padding-top:10px;margin-top:11px;color:#2a4752}
+    .task label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px;font-size:12px;color:var(--muted);font-weight:700}
+    select{font:inherit;font-size:12px;font-weight:700;border:1px solid #cbdadb;background:#fff;border-radius:8px;padding:7px 8px;color:var(--ink)}
+    .sources{margin-top:8px;font-size:12px}
+    .sources a{color:#286f85;text-decoration:none;margin-right:9px}
+    .sources a:hover{text-decoration:underline}
+    .foot{margin-top:28px;color:var(--muted);font-size:12px}
+    .empty{background:#fff;padding:25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+    @media(max-width:800px){.summary,.interface-grid{grid-template-columns:1fr 1fr}.intro-grid,.owner-grid,.task-grid{grid-template-columns:1fr}}
+    @media(max-width:520px){.hero{padding:40px 20px 50px}main{padding:0 16px}.summary,.interface-grid{gap:8px}.interface-grid{grid-template-columns:1fr}.stat{padding:15px}.stat strong{font-size:24px}}
+    @media print{.hero{background:#fff;color:#111;padding:10px 0}.hero p,.hero .meta span{color:#222}.toolbar,.task label,.foot{display:none}main{margin:0;max-width:none}.task,.panel,.stat{break-inside:avoid;box-shadow:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">Capstone · Eureka Desk Pet</div>
+    <h1>개발 진도표</h1>
+    <p>박시현(AI)과 이서현(백엔드)의 작업을 개발 순서대로 정리했습니다. 2026-10-29 로컬 main 코드와 팀 계약을 읽기 전용으로 확인한 기준이며, 아래 상태는 직접 바꿔 관리할 수 있습니다.</p>
+    <div class="meta"><span>백엔드 main · origin/main 일치</span><span>하드웨어 코드 저장소 미확인</span><span>이번 갱신에서 테스트 미실행</span><span>기준일 2026-10-29 KST</span></div>
+  </header>
+  <main>
+    <section class="summary" aria-label="전체 진도 요약">
+      <div class="stat"><div class="label">MVP 작업</div><strong id="totalCount">—</strong><small>이 진도표의 필수 작업</small></div>
+      <div class="stat"><div class="label">완료</div><strong id="doneCount">—</strong><small>확인된 결과 기준</small></div>
+      <div class="stat"><div class="label">진행 중</div><strong id="partialCount">—</strong><small>기반은 있으나 완료 기준 미달</small></div>
+      <div class="stat"><div class="label">대기·미착수</div><strong id="openCount">—</strong><small>다음 개발 순서 참고</small></div>
+    </section>
+
+    <section class="section intro-grid">
+      <div class="panel">
+        <h2>지금 확인된 것</h2>
+        <ul>
+          <li>Eureka 실제 <b>업무 등록·목록 조회</b>와 필드·상태 변환 검증 완료.</li>
+          <li>Gemini <b>텍스트 → Decision</b>, 백엔드 <b>/api/text 등록·조회</b>, 기본 알림 60분 처리 완료.</li>
+          <li><b>재질문 60초 보관 → 다음 요청 전달 → 성공 후 삭제</b> 구현 및 가상 업무로 Gemini 연속 호출 확인.</li>
+          <li><b>/api/voice</b> WAV 검사·처리 연결과 <b>WebSocket</b> 접속·PING/PONG 구현. Pi 실기기 연결은 별도 확인 필요.</li>
+          <li>AI 평가용 발화 20개와 실행기는 있지만, 실제 점수·지연 결과 파일은 확인되지 않음.</li>
+        </ul>
+      </div>
+      <div class="panel warning">
+        <h2>아직 완료로 표시할 수 없는 것</h2>
+        <p><code>complete_task</code>·<code>update_due</code>·<code>set_reminder</code> 실행 경로와 자동 마감 알림은 미구현입니다. WebSocket 통로만으로 알림이 자동 전송되지는 않습니다.</p>
+        <p>현재 작업 폴더에는 Pi 코드 저장소가 없어 실제 마이크 업로드·TTS·LCD·재연결 구현 상태를 확인하지 못했습니다. 이번 갱신에서는 테스트와 실기기 시연을 실행하지 않았습니다.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Pi와 백엔드의 연결 현황">
+      <h2>Pi ↔ 백엔드 연결 현황</h2>
+      <div class="interface-grid">
+        <div class="panel"><h3>음성 HTTP</h3><p>POST /api/voice: WAV 업로드·토큰·형식 검사와 백엔드 처리 연결</p><span class="badge state done">백엔드 구현</span></div>
+        <div class="panel"><h3>출력 응답</h3><p>output.tts와 lcd.expression/text 전송. 실제 TTS 재생·표정 그림은 Pi 담당</p><span class="badge state partial">Pi 연동 미확인</span></div>
+        <div class="panel"><h3>WebSocket</h3><p>/ws/hardware/{user_id}: 연결·connected·PING/PONG 구현</p><span class="badge state partial">Pi 접속 미확인</span></div>
+        <div class="panel"><h3>선제 알림</h3><p>60초 폴링·전송·재전송 및 앱 시작 연결이 아직 없음</p><span class="badge state todo">미구현</span></div>
+      </div>
+    </section>
+
+    <section class="section owner-grid" aria-label="담당별 진도">
+      <div class="panel owner-backend">
+        <div class="owner-head"><h3>이서현 · 백엔드</h3><span id="backendFraction">—</span></div>
+        <div class="track"><div class="fill" id="backendBar"></div></div>
+        <div class="owner-next">다음: Eureka 완료·마감 변경 → tasks 3개 action → 재시도 안전성 → Docker·Pi 연동</div>
+      </div>
+      <div class="panel owner-ai">
+        <div class="owner-head"><h3>박시현 · AI</h3><span id="aiFraction">—</span></div>
+        <div class="track"><div class="fill" id="aiBar"></div></div>
+        <div class="owner-next">다음: 20문항 평가 실행, 오류 분석, 18/20·지연 목표 확인</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>개발 순서</h2>
+      <div class="toolbar" role="group" aria-label="작업 필터">
+        <button type="button" class="chip active" data-filter="all">전체</button>
+        <button type="button" class="chip" data-filter="backend">이서현 · 백엔드</button>
+        <button type="button" class="chip" data-filter="ai">박시현 · AI</button>
+        <span class="spacer"></span>
+        <button type="button" class="action" id="exportButton">진도 JSON 저장</button>
+        <button type="button" class="action" id="resetButton">기준 상태로 되돌리기</button>
+      </div>
+      <p class="hint" id="storageHint">상태 변경은 이 브라우저에 저장됩니다. 두 담당자의 같은 단계 작업은 병행할 수 있습니다.</p>
+      <div id="timeline"></div>
+    </section>
+
+    <section class="section panel">
+      <h2>범위와 일정 기준</h2>
+      <p><b>10/31:</b> 음성 요청 전체 흐름. <b>11/14:</b> 선제 알림과 Pi 연결. <b>11/28:</b> 시나리오 리허설. 문서의 10/18 목표는 이미 지났으므로 현재 검증 결과로 상태를 판정했습니다.</p>
+      <p>Pi의 녹음·TTS·LED/LCD, WebSocket 클라이언트와 재접속은 하드웨어 팀 작업입니다. 여기에는 박시현·이서현의 소유 작업과 기기 연결 검증만 넣었습니다. 로컬 LLM 비교, MCP, 경량 Intent 모델은 1차 MVP 뒤의 선택 과제입니다.</p>
+      <div class="sources">기준 문서:
+        <a href="https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/architecture.md">architecture.md</a>
+        <a href="https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/contracts.md">contracts.md</a>
+        <a href="https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/ai/README.md">AI README</a>
+        <a href="https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/README.md">Backend README</a>
+      </div>
+    </section>
+    <p class="foot">이 복사본은 desk-pet-backend-lab/docs/progress에 게시됩니다. 체크 상태는 브라우저별로 저장됩니다. 기준 상태는 코드·문서 확인으로 판정했으며 이번 갱신에서 테스트·실기기 검증은 실행하지 않았습니다.</p>
+  </main>
+  <script>
+    const tasks = [
+      {id:"B01",phase:"완료된 기반 · 10/18 목표",owner:"backend",status:"done",title:"Eureka 실제 등록·목록 조회",detail:"EurekaClient create/list, 응답 ID·상태 변환, 모의 HTTP 테스트. 실제 테스트 업무 등록과 목록 확인 기록이 있음.",done:"실제 등록 ID가 목록에 보이고 todo/doing/done/hold 변환이 맞는다.",links:[["eureka.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/eureka.py"],["HTTP 테스트","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/tests/test_eureka_http.py"]]},
+      {id:"A01",phase:"완료된 기반 · 10/18 목표",owner:"ai",status:"done",title:"Gemini → Decision 텍스트 호출",detail:"analyze()와 공유 Decision 스키마를 연결하고 google-genai를 설치. 실제 Gemini 조회 문장에서 list_tasks/today 응답 확인.",done:"텍스트 입력이 계약에 맞는 Decision으로 파싱된다.",links:[["ai.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/ai.py"],["스키마","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/schemas.py"]]},
+      {id:"B02",phase:"완료된 기반 · 10/18 목표",owner:"backend",status:"done",title:"/api/text 등록·조회 흐름",detail:"tasks.handle()가 AI 판단 뒤 등록·목록 조회를 처리. 기본 알림 60분, 과거 마감 거절, 오류 시 성공 문구 방지.",done:"등록·조회 요청의 정책과 응답이 테스트를 통과한다.",links:[["tasks.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/tasks.py"],["API","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/api/voice.py"]]},
+      {id:"B03",phase:"완료된 기반 · 10/18 목표",owner:"backend",status:"done",title:"재질문 pending 연결",detail:"사용자별 Decision을 SQLite에 60초 보관하고 다음 analyze()에 dict로 전달. 성공 뒤 삭제. 가상 업무와 실제 Gemini로 2회 흐름 확인.",done:"clarification → 추가 답변 → 실행, 만료·사용자 분리 테스트 통과.",links:[["db.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/db.py"],["재질문 테스트","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/tests/test_tasks.py"]]},
+
+      {id:"A02",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"ai",status:"partial",title:"20문항 AI 평가 실행·결과 기록",detail:"utterances.jsonl 20개와 run_eval.py는 준비됨. 실제 20건 점수·지연 측정 결과 파일은 없음.",done:"20건 action/args 정확도와 지연을 실행·기록하고 실패 문항을 분류한다.",links:[["평가셋","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/tests/eval/utterances.jsonl"],["평가 실행기","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/tests/eval/run_eval.py"]]},
+      {id:"B04",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"backend",status:"todo",title:"Eureka 완료·마감 변경 실제 메서드",detail:"EurekaClient.complete_task(), update_due()는 현재 NotImplementedError. PoC 요청 형식·응답을 확인해 구현한다.",done:"완료·마감 변경 모의 HTTP 테스트 후 팀 테스트 환경에서 상태와 마감 반영 확인.",links:[["eureka.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/eureka.py"],["계약","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/contracts.md"]]},
+      {id:"B05",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"backend",status:"todo",title:"tasks.handle() 나머지 3개 action",detail:"complete_task, update_due, set_reminder 경로가 아직 미지원. 기존 Eureka/DB 함수 재사용, item_id 미완료 목록 확인, 과거 마감 거절.",done:"완료·마감 변경·알림 설정 각각 성공/모호함/실패 테스트 통과.",links:[["tasks.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/tasks.py"],["계약","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/contracts.md"]]},
+      {id:"B15",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"backend",status:"todo",title:"등록 요청 재시도 중복 방지",detail:"현재 request_id는 응답에만 사용한다. Eureka 등록 후 응답 시간 초과나 알림 DB 저장 실패가 나면 Pi 재시도로 중복 업무가 생길 수 있다.",done:"같은 request_id를 재전송해도 업무가 중복 등록되지 않고 부분 성공을 정확히 안내한다.",links:[["tasks.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/tasks.py"],["계약","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/contracts.md"]]},
+      {id:"B14",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"backend",status:"partial",title:"Docker 빌드·실행 기본 검증",detail:"Dockerfile과 docker-compose.yml은 있음. .dockerignore가 없어 .env·.venv가 빌드 컨텍스트에 들어갈 수 있고, 실제 이미지 빌드·헬스체크·DB 볼륨 재시작 검증은 아직 없음.",done:".dockerignore로 비밀키·가상환경·DB를 제외한 뒤 이미지 빌드, /health, 컨테이너 재시작 후 SQLite 보존을 확인한다.",links:[["Dockerfile","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/Dockerfile"],["Compose","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/docker-compose.yml"]]},
+      {id:"A03",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"ai",status:"todo",title:"평가 실패 문항 개선·목표 달성",detail:"오류 문항 기준으로 프롬프트·날짜 계산·대상 선택을 수정. 평가 실행기의 불필요한 noqa 2곳도 정리.",done:"20개 중 18개 이상 정확, 지연 중앙값 2초 이하 결과를 남긴다.",links:[["ai.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/ai.py"],["AI 기준","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/ai/README.md"]]},
+      {id:"B06",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"backend",status:"partial",title:"실제 Eureka → Gemini → /api/text 통합 검증",detail:"호출 경로는 연결되어 있고 별도 음성 조회 시연 기록은 있다. 실제 업무가 들어 있는 Eureka 목록으로 텍스트 요청부터 최종 응답까지 재현 가능한 검증 결과는 확인되지 않았다.",done:"팀 테스트 업무로 텍스트 등록·조회가 끝까지 동작하고 반환 ID와 응답 문구를 기록한다.",links:[["API","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/api/voice.py"],["데이터 규칙","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/ai/README.md"]]},
+      {id:"B07",phase:"지금 먼저 · 텍스트 MVP 완성",owner:"backend",status:"partial",title:"오류·목록 경계 처리",detail:"형식 오류·LLM 실패는 ERROR로 처리하지만 429/타임아웃별 테스트와 Eureka 목록 100건 이상 페이지 처리는 남음.",done:"429·형식 오류·Eureka 실패가 안전하게 응답하고, 100건 이상에서도 누락 없는 목록.",links:[["tasks.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/tasks.py"],["eureka.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/eureka.py"]]},
+
+      {id:"A04",phase:"다음 · 10/31 음성 요청",owner:"ai",status:"partial",title:"WAV 직접 입력·STT 품질 검증",detail:"ai.py의 WAV 직접 입력은 구현됨. 이전 합성 WAV 조회 시연은 있지만 실제 Pi 녹음의 정확도·지연 검증 기록은 없음.",done:"대표 실제 녹음 발화가 transcript와 Decision으로 정확히 변환되고 지연을 기록한다.",links:[["ai.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/ai.py"],["평가 기준","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/ai/README.md"]]},
+      {id:"B08",phase:"다음 · 10/31 음성 요청",owner:"backend",status:"done",title:"POST /api/voice 구현",detail:"WAV 형식·길이 검사, user_id/request_id 수신, tasks.handle(audio=...) 연결 완료. 잘못된 입력·토큰 거절 테스트와 Swagger에서 한국어 WAV 조회 200/OK 응답 확인.",done:"정상 WAV는 응답 계약을 지키고 잘못된 입력·토큰은 안전하게 거절한다.",links:[["voice.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/api/voice.py"],["Pi 계약","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/contracts.md"]]},
+      {id:"B09",phase:"다음 · 10/31 음성 요청",owner:"backend",status:"partial",title:"음성 API 실호출·응답 시간",detail:"한국어 합성 WAV로 /api/voice → Gemini → Eureka 조회 → VoiceResponse의 200/OK, transcript, task_list를 확인. 남은 백엔드 검증은 처리 시간 측정과 업무가 있는 조회·오류 응답이다. Pi 마이크 녹음과 TTS 재생은 하드웨어 팀 담당이며 B12에서 기기 연동을 함께 확인한다.",done:"음성 요청이 응답 계약대로 처리되고 백엔드 응답 시간이 Pi의 10초 대기보다 짧다.",links:[["구조","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/architecture.md"]]},
+      {id:"B16",phase:"다음 · 10/31 음성 요청",owner:"backend",status:"todo",title:"무음·음성 인식 실패 응답 구분",detail:"NO_SPEECH와 STT_ERROR는 응답 스키마에 있지만 실제 분기에서 반환하지 않는다. 현재 WAV 형식 검사만 수행하고 AI 실패는 일반 ERROR로 처리한다.",done:"무음·인식 실패·일반 서버 오류를 계약대로 구분하고 각각의 응답 테스트가 통과한다.",links:[["스키마","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/schemas.py"],["음성 API","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/api/voice.py"]]},
+
+      {id:"B10",phase:"그다음 · 11/14 선제 알림",owner:"backend",status:"todo",title:"마감 알림 체크·기록",detail:"reminder.check_once()는 미구현. 60초 폴링, 마감−offset 비교, 상태 재확인, alerts 중복 방지와 미전달 기록.",done:"마감 임박 업무가 1회만 알림 되고 완료된 업무는 전송되지 않는다.",links:[["reminder.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/services/reminder.py"],["알림 계약","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/architecture.md"]]},
+      {id:"B11",phase:"그다음 · 11/14 선제 알림",owner:"backend",status:"todo",title:"WS 재연결·앱 시작 루프",detail:"WS connected/PING/PONG과 send_alert()는 있음. 미전달 알림 재검증·재전송 및 FastAPI lifespan에서 루프 시작은 미구현.",done:"Pi 재연결 후 최신 상태로 필요한 알림만 재전송하고 앱 종료 시 루프 정리.",links:[["ws.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/api/ws.py"],["main.py","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/src/desk_pet_backend/main.py"]]},
+      {id:"B12",phase:"그다음 · 11/14 선제 알림",owner:"backend",status:"todo",title:"Docker 환경에서 Pi 실기기 연결 시연",detail:"기본 Docker 빌드 검증을 마친 서버를 같은 Wi-Fi에서 실행하고 Pi 업로드·TTS·WS 수신을 하드웨어 팀과 통합.",done:"업무 등록과 '3분 뒤 마감·2분 전 알림' 시나리오를 실기기로 재현.",links:[["실행 안내","https://github.com/hansung-capstone-team-6-clear/desk-pet-backend/blob/main/README.md"],["일정","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/architecture.md"]]},
+
+      {id:"A05",phase:"마지막 · 11/28 리허설",owner:"ai",status:"todo",title:"최종 AI 평가·실패 사례 정리",detail:"텍스트와 실제 WAV 발화 결과, 재질문 성공률, 모델 지연·한도 문제를 최종 기록.",done:"팀이 재현할 수 있는 발화 목록과 점수·지연·실패 대안을 문서로 남긴다.",links:[["AI 기준","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/ai/README.md"]]},
+      {id:"B13",phase:"마지막 · 11/28 리허설",owner:"backend",status:"todo",title:"3개 시나리오·재질문 리허설",detail:"등록·조회·완료/변경, 재질문, 선제 알림의 API/기기 흐름을 함께 시연. 장애 시 /api/text와 mock 모드 확인.",done:"대표 시나리오 3개와 재질문 1개가 연속 성공하고 실패 시 대응 방법을 확보.",links:[["로드맵","https://github.com/hansung-capstone-team-6-clear/knowledge/blob/master/projects/eureka-desk-pet/architecture.md"]]}
+    ];
+
+    const key = "desk-pet-progress-2026-10-28-v1";
+    let saved = {};
+    let storageWorks = true;
+    try { saved = JSON.parse(localStorage.getItem(key) || "{}") || {}; }
+    catch (_) { storageWorks = false; }
+    let filter = "all";
+    const stateNames = {done:"완료",partial:"진행 중",todo:"미착수",blocked:"대기"};
+    const ownerNames = {backend:"이서현 · 백엔드",ai:"박시현 · AI"};
+    const $ = id => document.getElementById(id);
+    function getState(task){ return saved[task.id] || task.status; }
+    function save(){
+      try { localStorage.setItem(key, JSON.stringify(saved)); }
+      catch (_) { storageWorks = false; }
+      if (!storageWorks) $("storageHint").textContent = "이 브라우저에서는 자동 저장이 제한됩니다. '진도 JSON 저장'으로 기록을 내려받으세요.";
+    }
+    function metrics(){
+      const done = tasks.filter(t => getState(t) === "done").length;
+      const partial = tasks.filter(t => getState(t) === "partial").length;
+      $("totalCount").textContent = tasks.length + "개";
+      $("doneCount").textContent = done + "개";
+      $("partialCount").textContent = partial + "개";
+      $("openCount").textContent = (tasks.length - done - partial) + "개";
+      for (const owner of ["backend","ai"]) {
+        const own = tasks.filter(t => t.owner === owner);
+        const ownDone = own.filter(t => getState(t) === "done").length;
+        $(owner + "Fraction").textContent = ownDone + " / " + own.length + " 완료";
+        $(owner + "Bar").style.width = (100 * ownDone / own.length) + "%";
+      }
+    }
+    function render(){
+      metrics();
+      const root = $("timeline");
+      root.replaceChildren();
+      const visible = tasks.filter(t => filter === "all" || t.owner === filter);
+      if (!visible.length) { root.innerHTML = '<div class="empty">표시할 작업이 없습니다.</div>'; return; }
+      const phases = [...new Set(visible.map(t => t.phase))];
+      for (const phaseName of phases) {
+        const section = document.createElement("section");
+        section.className = "phase";
+        const title = document.createElement("div");
+        title.className = "phase-title";
+        title.innerHTML = "<h3></h3><span></span>";
+        title.querySelector("h3").textContent = phaseName;
+        title.querySelector("span").textContent = visible.filter(t => t.phase === phaseName).length + "개 작업";
+        section.append(title);
+        const grid = document.createElement("div");
+        grid.className = "task-grid";
+        for (const task of visible.filter(t => t.phase === phaseName)) {
+          const state = getState(task);
+          const card = document.createElement("article");
+          card.className = "task";
+          const top = document.createElement("div");
+          top.className = "task-top";
+          top.innerHTML = '<span class="order"></span><span class="badge owner"></span><span class="badge state"></span>';
+          top.querySelector(".order").textContent = task.id;
+          const owner = top.querySelector(".owner");
+          owner.classList.add(task.owner);
+          owner.textContent = ownerNames[task.owner];
+          const badge = top.querySelector(".state");
+          badge.classList.add(state);
+          badge.textContent = stateNames[state];
+          card.append(top);
+          const h = document.createElement("h4"); h.textContent = task.title; card.append(h);
+          const p = document.createElement("p"); p.textContent = task.detail; card.append(p);
+          const doneWhen = document.createElement("p");
+          doneWhen.className = "done-when";
+          doneWhen.textContent = "완료 기준 · " + task.done;
+          card.append(doneWhen);
+          const sources = document.createElement("div"); sources.className = "sources";
+          for (const [label,path] of task.links) {
+            const a = document.createElement("a"); a.href = path; a.textContent = label + " ↗"; a.target = "_blank"; a.rel = "noopener";
+            sources.append(a);
+          }
+          card.append(sources);
+          const label = document.createElement("label");
+          label.textContent = "내 진도 변경";
+          const select = document.createElement("select");
+          select.setAttribute("aria-label", task.title + " 상태");
+          for (const [value,name] of Object.entries(stateNames)) {
+            const option = document.createElement("option"); option.value = value; option.textContent = name; select.append(option);
+          }
+          select.value = state;
+          select.addEventListener("change", () => { saved[task.id] = select.value; save(); render(); });
+          label.append(select); card.append(label); grid.append(card);
+        }
+        section.append(grid); root.append(section);
+      }
+    }
+    document.querySelectorAll("[data-filter]").forEach(button => button.addEventListener("click", () => {
+      filter = button.dataset.filter;
+      document.querySelectorAll("[data-filter]").forEach(b => b.classList.toggle("active", b === button));
+      render();
+    }));
+    $("resetButton").addEventListener("click", () => {
+      if (!confirm("체크한 진도를 2026-10-29 기준 상태로 되돌릴까요?")) return;
+      saved = {}; save(); render();
+    });
+    $("exportButton").addEventListener("click", () => {
+      const payload = {snapshot:"2026-10-29",exportedAt:new Date().toISOString(),tasks:tasks.map(t => ({id:t.id,owner:t.owner,title:t.title,status:getState(t)}))};
+      const url = URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)], {type:"application/json"}));
+      const a = document.createElement("a"); a.href = url; a.download = "desk-pet-progress.json"; a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+    render();
+    if (!storageWorks) $("storageHint").textContent = "이 브라우저에서는 자동 저장이 제한됩니다. '진도 JSON 저장'으로 기록을 내려받으세요.";
+  </script>
+</body>
+</html>
